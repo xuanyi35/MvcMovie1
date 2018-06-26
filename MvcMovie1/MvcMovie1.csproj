@@ -21,4 +21,13 @@
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.3" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Content Remove="wwwroot\css\background.css" />
+    <Content Remove="wwwroot\css\BG.css" />
+    <Content Remove="wwwroot\css\gallery.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="wwwroot\css\BG.css" />
+    <None Include="wwwroot\css\gallery.css" />
+  </ItemGroup>
 </Project>
