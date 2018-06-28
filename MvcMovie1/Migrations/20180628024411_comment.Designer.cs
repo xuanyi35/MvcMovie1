@@ -11,9 +11,10 @@ using System;
 namespace MvcMovie1.Migrations
 {
     [DbContext(typeof(MvcMovie1Context))]
-    partial class MvcMovie1ContextModelSnapshot : ModelSnapshot
+    [Migration("20180628024411_comment")]
+    partial class comment
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
