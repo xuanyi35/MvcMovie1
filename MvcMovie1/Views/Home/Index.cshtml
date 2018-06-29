@@ -1,11 +1,25 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
-<link rel="stylesheet" href="~/css/gallery.css" />
+<!--link rel="stylesheet" href="~/css/gallery.css" /-->
+<link href="https://fonts.googleapis.com/css?family=Dosis:400,700" rel="stylesheet">
+<link rel="stylesheet" href="~/css/cards.css" />
+<script src="~/js/discoverScripts.js"></script>
 
 
-<h2 style="text-align:center "> Welcome to Movie Station !</h2>
+    <h2 style="text-align:center "> Welcome to Movie Station !</h2>
 
+    <div id="root"></div>
+
+    <body onload="main()", id="movies">
+        <div class="bar">
+            <button id="previous" class="button1">  < </button>
+            <p style="display:inline-block" id="page" > 1 </p>
+            <button id="next" class="button1" onclick="next()">  > </button>
+        </div>
+
+    </body>
+<!---
 <div class="responsive">
     <div class="gallery">
         <a target="_blank" href="https://www.landmarkcinemas.com/film-info/incredibles-2">
@@ -46,4 +60,6 @@
         </a>
         <div class="desc">Avengers: Isle of Dogs</div>
     </div>
-</div> 
+</div>
+
+    -->
