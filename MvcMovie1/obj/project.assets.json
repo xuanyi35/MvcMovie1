@@ -13135,30 +13135,28 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\轩少\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "/Users/XuanShao/.nuget/packages/": {},
+    "/usr/local/share/dotnet/sdk/NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "G:\\vs projs\\MvcMovie1\\MvcMovie1\\MvcMovie1.csproj",
+      "projectUniqueName": "/Users/XuanShao/Desktop/proj/MvcMovie1/MvcMovie1/MvcMovie1.csproj",
       "projectName": "MvcMovie1",
-      "projectPath": "G:\\vs projs\\MvcMovie1\\MvcMovie1\\MvcMovie1.csproj",
-      "packagesPath": "C:\\Users\\轩少\\.nuget\\packages\\",
-      "outputPath": "G:\\vs projs\\MvcMovie1\\MvcMovie1\\obj\\",
+      "projectPath": "/Users/XuanShao/Desktop/proj/MvcMovie1/MvcMovie1/MvcMovie1.csproj",
+      "packagesPath": "/Users/XuanShao/.nuget/packages/",
+      "outputPath": "/Users/XuanShao/Desktop/proj/MvcMovie1/MvcMovie1/obj",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\轩少\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "/Users/XuanShao/.config/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -13175,22 +13173,23 @@
     "frameworks": {
       "netcoreapp2.0": {
         "dependencies": {
+          "Microsoft.NETCore.App": {
+            "suppressParent": "All",
+            "target": "Package",
+            "version": "2.0",
+            "autoReferenced": true
+          },
           "Microsoft.AspNetCore.All": {
             "target": "Package",
-            "version": "[2.0.6, )"
+            "version": "2.0.6"
           },
           "Microsoft.EntityFrameworkCore.Tools": {
             "target": "Package",
-            "version": "[2.0.3, )"
-          },
-          "Microsoft.NETCore.App": {
-            "target": "Package",
-            "version": "[2.0.0, )",
-            "autoReferenced": true
+            "version": "2.0.3"
           },
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
             "target": "Package",
-            "version": "[2.0.3, )"
+            "version": "2.0.3"
           }
         },
         "imports": [

@@ -9,57 +9,11 @@
 
     <h2 style="text-align:center "> Welcome to Movie Station !</h2>
 
-    <div id="root"></div>
+<body onload="main()", id="moviesL">
+    <div class="bar">
+        <button id="previous" class="button" onClick="previousClick()">  < </button>
+        <p style="display: inline-block" id="page" > 1 </p>
+        <button id="next" class="button" onclick="nextClick()">  > </button>
+    </div>
 
-    <body onload="main()", id="movies">
-        <div class="bar">
-            <button id="previous" class="button1">  < </button>
-            <p style="display:inline-block" id="page" > 1 </p>
-            <button id="next" class="button1" onclick="next()">  > </button>
-        </div>
-
-    </body>
-<!---
-<div class="responsive">
-    <div class="gallery">
-        <a target="_blank" href="https://www.landmarkcinemas.com/film-info/incredibles-2">
-            <img src="https://filmdb.landmarkcinemas.com/FilmImages/22/1/120480/Incredibles2-NewPoster.jpg" class="img-thumbnail" alt="Incredibles 2">
-        </a>
-        <div class="desc">Incredibles 2</div>
-    </div>
-</div>
-<div class="responsive">
-    <div class="gallery">
-        <a target="_blank" href="https://www.landmarkcinemas.com/film-info/jurassic-world-fallen-kingdom">
-            <img src="https://filmdb.landmarkcinemas.com/FilmImages/22/1/119998/jurassic-world-fallen-kingdom-JW2_Adv-350x522.jpg" class="img-thumbnail" alt="urassic World: Fallen Kingdom">
-        </a>
-        <div class="desc">Jurassic World: Fallen Kingdom</div>
-    </div>
-</div>
-<div class="responsive">
-    <div class="gallery">
-        <a target="_blank" href="https://www.landmarkcinemas.com/film-info/deadpool-2">
-            <img src="https://filmdb.landmarkcinemas.com/FilmImages/22/1/119663/Deadpool2FinalPoster.png" class="img-thumbnail" alt="Deadpool 2">
-        </a>
-        <div class="desc">Deadpool 2</div>
-    </div>
-</div>
-<div class="responsive">
-    <div class="gallery">
-        <a target="_blank" href="https://www.landmarkcinemas.com/film-info/avengers-infinity-war">
-            <img src="https://filmdb.landmarkcinemas.com/FilmImages/22/1/119619/AIW-Payoff_1_Sheet-SM.jpg" class="img-thumbnail" alt="Avengers: Infinity War">
-        </a>
-        <div class="desc">Avengers: Infinity War</div>
-    </div>
-</div>
-
-<div class="responsive">
-    <div class="gallery">
-        <a target="_blank" href="https://www.landmarkcinemas.com/film-info/isle-of-dogs">
-            <img src=" https://filmdb.landmarkcinemas.com/FilmImages/22/1/120376/IsleOfDogs_OnlinePoster_350x522.jpg" class="img-thumbnail" alt="Isle of Dogs" >
-        </a>
-        <div class="desc">Avengers: Isle of Dogs</div>
-    </div>
-</div>
-
-    -->
+</body>
