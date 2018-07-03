@@ -1,12 +1,13 @@
 function main() {
     const body = document.getElementById('moviesL');
-
     const app = document.createElement('div');
     app.setAttribute('id', 'root');
     body.appendChild(app);                          // body append root
 
+    
     const container = document.createElement('div');                // root append container
     container.setAttribute('class', 'container');
+    container.setAttribute('id', 'container');
     app.appendChild(container);
 
     var page = getPage();
@@ -57,7 +58,7 @@ function main() {
 
     const pp = document.createElement('p');
     pp.setAttribute('id', 'pageBelow');
-    pp.style.display ='inline-block';
+    pp.style.display = 'inline-block';
     pp.innerHTML = document.getElementById('page').innerHTML;
     bar.appendChild(pp);
 
@@ -67,14 +68,30 @@ function main() {
     bar.appendChild(next);
     document.getElementById('nextBelow').onclick = nextClick;
 
+    // jump page field
+    const tp = document.createElement("INPUT");
+    tp.setAttribute("type", "text");
+    tp.setAttribute("id", "tpdown");
+    tp.style.width = "40px";
+    tp.style.marginLeft = "30px";
+    bar.appendChild(tp);
+
+    const godown = document.createElement('button');
+    godown.setAttribute('id', 'godown');
+    godown.innerHTML = 'Go!';
+    godown.style.width = "3%";
+    bar.appendChild(godown);
+    document.getElementById('godown').onclick = jumpPage;
+
 }
 
 // jump to next page
 function nextClick() {
     Ipage = Number(document.getElementById('page').innerText) +1 
     document.getElementById('page').innerText = Ipage.toString();
-    const body = document.getElementById('moviesL');            // remove previous content "root"
+    // remove previous content "container"
     const app = document.getElementById('root');
+    const body = document.getElementById('moviesL');
     body.removeChild(app);
     main(Ipage.toString());
    
@@ -85,8 +102,9 @@ function previousClick() {
     Ipage = Number(document.getElementById('page').innerText) -1
     if (Ipage > 0 ){
         document.getElementById('page').innerText = Ipage.toString();
-        const body = document.getElementById('moviesL');            // remove previous content "root"
+         // remove previous content "container"
         const app = document.getElementById('root');
+        const body = document.getElementById('moviesL');     
         body.removeChild(app);
         main(Ipage.toString());
     }
@@ -98,4 +116,20 @@ function getPage() {
     var pg = document.getElementById('page').innerText;
     console.log(pg);
     return pg;
+}
+
+
+// jump to a page by number
+function jumpPage() {
+    Ipage = document.getElementById('toPage').value;
+    document.getElementById('toPage').value = null;
+    if (Ipage == '') {
+        Ipage = document.getElementById("tpdown").value;
+        document.getElementById("tpdown").value = null;
+    }
+    document.getElementById('page').innerText = Ipage;
+    const body = document.getElementById('moviesL');			// remove previous content "root"
+    const app = document.getElementById('root');
+    body.removeChild(app);
+    main(Ipage);
 }

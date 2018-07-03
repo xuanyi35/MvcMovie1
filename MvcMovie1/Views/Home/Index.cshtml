@@ -8,12 +8,17 @@
 
 
     <h2 style="text-align:center "> Welcome to Movie Station !</h2>
+    <div class="bar" id=" BUTbar">
+        <button id="previous1" class="button" onClick="previousClick()">  < </button>
+        <p  id="page" style=" display: inline-block"> 1 </p>
+        <button id="next" class="button1" onclick="nextClick()">  > </button>
 
-<body onload="main()", id="moviesL">
-    <div class="bar">
-        <button id="previous" class="button" onClick="previousClick()">  < </button>
-        <p style="display: inline-block" id="page" > 1 </p>
-        <button id="next" class="button" onclick="nextClick()">  > </button>
+        <input type="text" id="toPage" style="width:40px; margin-left:30px">
+        <button id="go" class="button1" style="width:3%" onclick="jumpPage()">  Go! </button>
     </div>
 
-</body>
+    <p   id="moviesL"> </p>
+    <body onload="main()" >
+    </body>
+
+

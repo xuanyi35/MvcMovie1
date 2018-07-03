@@ -32,8 +32,9 @@ img {
 }
 
 p {
-  padding: 0 2.5rem 2.5rem;
-  margin: 0;
+    display: inline-block;
+    padding: 0 2.5rem 2.5rem;
+    margin: 0;
 }
 
 .container {
@@ -82,8 +83,11 @@ p {
 .bar {
     text-align: center;
 }
-button {
+
+.button1 {
     height: 2.5em;
     width: 5%;
-    display:inline
+    display: inline;
+    min-width: 30px;
+    text-align: center;
 }
