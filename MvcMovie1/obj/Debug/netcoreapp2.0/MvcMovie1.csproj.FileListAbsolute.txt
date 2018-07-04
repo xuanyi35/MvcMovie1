@@ -19,4 +19,3 @@ G:\vs projs\MvcMovie1\MvcMovie1\obj\Debug\netcoreapp2.0\MvcMovie1.AssemblyInfoIn
 G:\vs projs\MvcMovie1\MvcMovie1\obj\Debug\netcoreapp2.0\MvcMovie1.AssemblyInfo.cs
 G:\vs projs\MvcMovie1\MvcMovie1\obj\Debug\netcoreapp2.0\MvcMovie1.dll
 G:\vs projs\MvcMovie1\MvcMovie1\obj\Debug\netcoreapp2.0\MvcMovie1.pdb
-G:\vs projs\MvcMovie1\MvcMovie1\obj\Debug\netcoreapp2.0\MvcMovie1.csprojResolveAssemblyReference.cache

@@ -5,20 +5,25 @@
 <link href="https://fonts.googleapis.com/css?family=Dosis:400,700" rel="stylesheet">
 <link rel="stylesheet" href="~/css/cards.css" />
 <script src="~/js/discoverScripts.js"></script>
+<link rel="stylesheet" href="~/css/loader.css" />
 
 
-    <h2 style="text-align:center "> Welcome to Movie Station !</h2>
-    <div class="bar" id=" BUTbar">
-        <button id="previous1" class="button" onClick="previousClick()">  < </button>
-        <p  id="page" style=" display: inline-block"> 1 </p>
-        <button id="next" class="button1" onclick="nextClick()">  > </button>
+<h2 style="text-align:center "> Welcome to Movie Station !</h2>
+<body onload="main()" , id="moviesL">
 
-        <input type="text" id="toPage" style="width:40px; margin-left:30px">
-        <button id="go" class="button1" style="width:3%" onclick="jumpPage()">  Go! </button>
-    </div>
+    <div id="loader"></div>
+    <div style="display:none;" id="myDiv" class="animate-bottom">
+        <div class="bar">
+            <button id="previous" class="button" onClick="previousClick()">  < </button>
+            <p id="page">1</p>
+            <button id="next" class="button" onclick="nextClick()">  > </button>
 
-    <p   id="moviesL"> </p>
-    <body onload="main()" >
-    </body>
+            <input type="text" id="toPage" style="width:40px; margin-left:30px">
+            <button id="go" class="button" style="width:3%" onclick="jumpPage()">  Go! </button>
+        </div>
+
+        <div id="root"> </div>
+</div>
+</body>
 
 

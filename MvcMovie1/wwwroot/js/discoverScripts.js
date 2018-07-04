@@ -1,16 +1,13 @@
 function main() {
-    const body = document.getElementById('moviesL');
-    const app = document.createElement('div');
-    app.setAttribute('id', 'root');
-    body.appendChild(app);                          // body append root
-
-    
+    const app = document.getElementById('root');       
+    app.style.display = "none";
     const container = document.createElement('div');                // root append container
     container.setAttribute('class', 'container');
     container.setAttribute('id', 'container');
     app.appendChild(container);
-
     var page = getPage();
+    document.getElementById('page').innerHTML = page;
+
     url = 'https://api.themoviedb.org/3/discover/movie?page='+page+'&include_video=false&include_adult=false&sort_by=popularity.desc&language=en-US&api_key=b7f9af2647fdef6d0633f07337802317';
     var request = new XMLHttpRequest()
     request.open("GET", url);
@@ -52,18 +49,19 @@ function main() {
 
     const previous = document.createElement('button');
     previous.setAttribute('id', 'previousBelow');
+    previous.setAttribute('class', 'btn1');
     previous.innerHTML = '<';
     bar.appendChild(previous);
     document.getElementById('previousBelow').onclick = previousClick;
 
     const pp = document.createElement('p');
     pp.setAttribute('id', 'pageBelow');
-    pp.style.display = 'inline-block';
-    pp.innerHTML = document.getElementById('page').innerHTML;
+    pp.innerHTML = page;
     bar.appendChild(pp);
 
     const next = document.createElement('button');
     next.setAttribute('id', 'nextBelow');
+    next.setAttribute('class', 'btn1');
     next.innerHTML = '>';
     bar.appendChild(next);
     document.getElementById('nextBelow').onclick = nextClick;
@@ -78,44 +76,45 @@ function main() {
 
     const godown = document.createElement('button');
     godown.setAttribute('id', 'godown');
+    godown.setAttribute('class', 'btn1');
     godown.innerHTML = 'Go!';
     godown.style.width = "3%";
     bar.appendChild(godown);
     document.getElementById('godown').onclick = jumpPage;
 
+    myVar = setTimeout(showPage, 1000);
+
 }
 
 // jump to next page
 function nextClick() {
-    Ipage = Number(document.getElementById('page').innerText) +1 
-    document.getElementById('page').innerText = Ipage.toString();
-    // remove previous content "container"
-    const app = document.getElementById('root');
-    const body = document.getElementById('moviesL');
-    body.removeChild(app);
-    main(Ipage.toString());
+    Ipage = Number(document.getElementById('page').innerText) + 1;
+    window.sessionStorage.setItem("page", Ipage.toString());
+    location.reload();
    
 }
 
 //  jump to previous page
 function previousClick() {
-    Ipage = Number(document.getElementById('page').innerText) -1
-    if (Ipage > 0 ){
-        document.getElementById('page').innerText = Ipage.toString();
-         // remove previous content "container"
-        const app = document.getElementById('root');
-        const body = document.getElementById('moviesL');     
-        body.removeChild(app);
-        main(Ipage.toString());
+    Ipage = Number(document.getElementById('page').innerText) - 1
+    if (Ipage > 0) {
+        window.sessionStorage.setItem("page", Ipage.toString());
+        location.reload();
     }
    
 }
 
 // get previous page number
 function getPage() {
-    var pg = document.getElementById('page').innerText;
-    console.log(pg);
-    return pg;
+    var pg = window.sessionStorage.getItem("page");
+    if (pg == null) {
+        console.log('1');
+        return '1';
+    }
+    else {
+        return pg;
+    }
+
 }
 
 
@@ -127,9 +126,13 @@ function jumpPage() {
         Ipage = document.getElementById("tpdown").value;
         document.getElementById("tpdown").value = null;
     }
-    document.getElementById('page').innerText = Ipage;
-    const body = document.getElementById('moviesL');			// remove previous content "root"
-    const app = document.getElementById('root');
-    body.removeChild(app);
-    main(Ipage);
+    window.sessionStorage.setItem("page", Ipage);
+    location.reload();
+}
+
+function showPage() {
+
+    document.getElementById("loader").style.display = "none";
+    document.getElementById("root").style.display = "block";
+    document.getElementById("myDiv").style.display = "block";
 }
