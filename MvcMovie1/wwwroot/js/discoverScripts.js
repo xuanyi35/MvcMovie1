@@ -47,9 +47,11 @@ function main() {
     bar.setAttribute('class', 'bar');
     app.appendChild(bar);
 
-    const previous = document.createElement('button');
+    const previous = document.createElement('a');
     previous.setAttribute('id', 'previousBelow');
-    previous.setAttribute('class', 'btn1');
+    previous.setAttribute('asp-controller', "Home");
+    previous.setAttribute('asp-action', "Index");
+    previous.setAttribute('asp-route-pageID', '"@pageNumber"'); 
     previous.innerHTML = '<';
     bar.appendChild(previous);
     document.getElementById('previousBelow').onclick = previousClick;

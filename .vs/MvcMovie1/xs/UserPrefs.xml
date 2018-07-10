@@ -1,9 +1,26 @@
 ﻿<Properties StartupConfiguration="{79C65D96-68F2-4B18-ADC6-207A7A58F12F}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="MvcMovie1/wwwroot/js/discoverScripts.js">
-    <Files>
-      <File FileName="MvcMovie1/wwwroot/js/discoverScripts.js" Line="22" Column="40" />
-      <File FileName="MvcMovie1/Views/Home/Index.cshtml" Line="19" Column="8" />
-    </Files>
+  <MonoDevelop.Ide.Workbench>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="MvcMovie1" expanded="True">
+            <Node name="MvcMovie1" expanded="True">
+              <Node name="Dependencies" expanded="True" />
+              <Node name="Views" expanded="True">
+                <Node name="Home" expanded="True">
+                  <Node name="Index.cshtml" selected="True" />
+                </Node>
+                <Node name="Movies" expanded="True" />
+              </Node>
+              <Node name="wwwroot" expanded="True">
+                <Node name="css" expanded="True" />
+                <Node name="js" expanded="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.ItemProperties.MvcMovie1 PreferredExecutionTarget="MonoDevelop.Default" />

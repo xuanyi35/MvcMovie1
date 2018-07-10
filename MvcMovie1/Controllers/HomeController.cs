@@ -10,7 +10,8 @@ namespace MvcMovie1.Controllers
 {
     public class HomeController : Controller
     {
-        public IActionResult Index()
+        
+        public IActionResult Index(string pageID)
         {
             return View();
         }
@@ -33,5 +34,10 @@ namespace MvcMovie1.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
+
+       
+
+
     }
 }

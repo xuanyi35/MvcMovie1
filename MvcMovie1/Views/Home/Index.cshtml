@@ -7,23 +7,45 @@
 <script src="~/js/discoverScripts.js"></script>
 <link rel="stylesheet" href="~/css/loader.css" />
 
-
 <h2 style="text-align:center "> Welcome to Movie Station !</h2>
 <body onload="main()" , id="moviesL">
-
     <div id="loader"></div>
     <div style="display:none;" id="myDiv" class="animate-bottom">
-        <div class="bar">
-            <button id="previous" class="button" onClick="previousClick()">  < </button>
-            <p id="page">1</p>
-            <button id="next" class="button" onclick="nextClick()">  > </button>
+        <!--div class="bar">
+        <button id="previous" class="button" onClick="previousClick()">  < </!--button>
+        <p id="page">1</p>
+        <button id="next" class="button" onclick="nextClick()">  > </button>
+        <input type="text" id="toPage" style="width:40px; margin-left:30px">
+        <button id="go" class="button" style="width:3%" onclick="jumpPage()">  Go! </button>
+    </div-->
 
-            <input type="text" id="toPage" style="width:40px; margin-left:30px">
-            <button id="go" class="button" style="width:3%" onclick="jumpPage()">  Go! </button>
+
+
+
+        @{
+        //System.Windows.Forms.WebBrowser webBrowser;
+        //HtmlDocument document = webBrowser.Document;
+
+        //var pageNumber = document.getElementById('page').innerHTML;
+        var pageNumber = 60;
+        }
+        <div class="bar">
+            <p style="display:none">@pageNumber</p>
+            <a asp-controller="Home" asp-action="Index" asp-route-pageID="@pageNumber" >
+                    <button style="background-color:transparent;" onClick="previousClick()"> <<< </button> 
+            </a>
+            <p id="page">1</p>
+            <a asp-controller="Home" asp-action="Index" asp-route-pageID="@pageNumber">
+                    <button style="background-color:transparent;" onClick="nextClick()"> >>> </button>
+            </a>
+            <input type="text" id="toPage" style="width: 40px; margin-left: 30px">
+             <a asp-controller="Home" asp-action="Index" asp-route-pageID="@pageNumber" >
+                    <button style="background-color: transparent;" onClick="jumpPage()">  Go! </button>
+             </a>
         </div>
 
-        <div id="root"> </div>
-</div>
-</body>
 
+        <div id="root"> </div>
+    </div>
+</body>
 
