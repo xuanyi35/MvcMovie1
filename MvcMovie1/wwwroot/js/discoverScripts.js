@@ -18,9 +18,11 @@ function main() {
         var movielist = data.results;
 
     // Log each movie's title & picture
+        var mid = 0;
         movielist.forEach(movie => {
             const card = document.createElement('div');
             card.setAttribute('class', 'card');
+            card.setAttribute('id', mid);
 
             const h1 = document.createElement('h1');
             h1.textContent = movie.title;
@@ -36,6 +38,12 @@ function main() {
             //card.appendChild(h2);
             card.appendChild(img);
 
+            document.getElementById(mid).onclick = function () {
+                console.log(movie.id);
+                 window.location.pathname = "../../Home/MovieDetail.cshtml";
+            }
+            mid = mid + 1;
+
         });
 
     }
@@ -47,12 +55,11 @@ function main() {
     bar.setAttribute('class', 'bar');
     app.appendChild(bar);
 
-    const previous = document.createElement('a');
+    const previous = document.createElement('button');
     previous.setAttribute('id', 'previousBelow');
-    previous.setAttribute('asp-controller', "Home");
-    previous.setAttribute('asp-action', "Index");
-    previous.setAttribute('asp-route-pageID', '"@pageNumber"'); 
-    previous.innerHTML = '<';
+    previous.setAttribute('class', "btn1");
+    previous.style = "background-color:transparent;"
+    previous.innerHTML = '<<';
     bar.appendChild(previous);
     document.getElementById('previousBelow').onclick = previousClick;
 
@@ -64,7 +71,8 @@ function main() {
     const next = document.createElement('button');
     next.setAttribute('id', 'nextBelow');
     next.setAttribute('class', 'btn1');
-    next.innerHTML = '>';
+    next.style = "background-color:transparent;"
+    next.innerHTML = '>>';
     bar.appendChild(next);
     document.getElementById('nextBelow').onclick = nextClick;
 
@@ -79,12 +87,15 @@ function main() {
     const godown = document.createElement('button');
     godown.setAttribute('id', 'godown');
     godown.setAttribute('class', 'btn1');
+    godown.style = "background-color:transparent;"
     godown.innerHTML = 'Go!';
     godown.style.width = "3%";
     bar.appendChild(godown);
+
     document.getElementById('godown').onclick = jumpPage;
 
     myVar = setTimeout(showPage, 1000);
+    
 
 }
 
@@ -110,7 +121,7 @@ function previousClick() {
 function getPage() {
     var pg = window.sessionStorage.getItem("page");
     if (pg == null) {
-        console.log('1');
+       // console.log('1');
         return '1';
     }
     else {
@@ -138,3 +149,4 @@ function showPage() {
     document.getElementById("root").style.display = "block";
     document.getElementById("myDiv").style.display = "block";
 }
+

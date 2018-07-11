@@ -9,13 +9,15 @@
 /Users/XuanShao/Desktop/proj/MvcMovie1/MvcMovie1/obj/Debug/netcoreapp2.0/MvcMovie1.AssemblyInfo.cs
 /Users/XuanShao/Desktop/proj/MvcMovie1/MvcMovie1/obj/Debug/netcoreapp2.0/MvcMovie1.dll
 /Users/XuanShao/Desktop/proj/MvcMovie1/MvcMovie1/obj/Debug/netcoreapp2.0/MvcMovie1.pdb
-G:/vs projs/MvcMovie1/MvcMovie1/bin/Debug/netcoreapp2.0/MvcMovie1.deps.json
-G:/vs projs/MvcMovie1/MvcMovie1/bin/Debug/netcoreapp2.0/MvcMovie1.runtimeconfig.json
-G:/vs projs/MvcMovie1/MvcMovie1/bin/Debug/netcoreapp2.0/MvcMovie1.runtimeconfig.dev.json
-G:/vs projs/MvcMovie1/MvcMovie1/bin/Debug/netcoreapp2.0/MvcMovie1.dll
-G:/vs projs/MvcMovie1/MvcMovie1/bin/Debug/netcoreapp2.0/MvcMovie1.pdb
-G:/vs projs/MvcMovie1/MvcMovie1/obj/Debug/netcoreapp2.0/MvcMovie1.csproj.CoreCompileInputs.cache
-G:/vs projs/MvcMovie1/MvcMovie1/obj/Debug/netcoreapp2.0/MvcMovie1.AssemblyInfoInputs.cache
-G:/vs projs/MvcMovie1/MvcMovie1/obj/Debug/netcoreapp2.0/MvcMovie1.AssemblyInfo.cs
-G:/vs projs/MvcMovie1/MvcMovie1/obj/Debug/netcoreapp2.0/MvcMovie1.dll
-G:/vs projs/MvcMovie1/MvcMovie1/obj/Debug/netcoreapp2.0/MvcMovie1.pdb
+G:\vs projs\MvcMovie1\MvcMovie1\bin\Debug\netcoreapp2.0\MvcMovie1.deps.json
+G:\vs projs\MvcMovie1\MvcMovie1\bin\Debug\netcoreapp2.0\MvcMovie1.runtimeconfig.json
+G:\vs projs\MvcMovie1\MvcMovie1\bin\Debug\netcoreapp2.0\MvcMovie1.runtimeconfig.dev.json
+G:\vs projs\MvcMovie1\MvcMovie1\bin\Debug\netcoreapp2.0\MvcMovie1.dll
+G:\vs projs\MvcMovie1\MvcMovie1\bin\Debug\netcoreapp2.0\MvcMovie1.pdb
+G:\vs projs\MvcMovie1\MvcMovie1\bin\Debug\netcoreapp2.0\System.Windows.Forms.dll
+G:\vs projs\MvcMovie1\MvcMovie1\obj\Debug\netcoreapp2.0\MvcMovie1.csproj.CoreCompileInputs.cache
+G:\vs projs\MvcMovie1\MvcMovie1\obj\Debug\netcoreapp2.0\MvcMovie1.AssemblyInfoInputs.cache
+G:\vs projs\MvcMovie1\MvcMovie1\obj\Debug\netcoreapp2.0\MvcMovie1.AssemblyInfo.cs
+G:\vs projs\MvcMovie1\MvcMovie1\obj\Debug\netcoreapp2.0\MvcMovie1.csproj.CopyComplete
+G:\vs projs\MvcMovie1\MvcMovie1\obj\Debug\netcoreapp2.0\MvcMovie1.dll
+G:\vs projs\MvcMovie1\MvcMovie1\obj\Debug\netcoreapp2.0\MvcMovie1.pdb
