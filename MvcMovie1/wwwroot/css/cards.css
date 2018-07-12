@@ -93,10 +93,11 @@ form {
     display: inline-block;
 }
 
-button {
+.btn1 {
     height: 2.5em;
     width: 5%;
     display: inline;
     min-width: 30px;
     text-align: center;
+    background-color:transparent;
 }

@@ -5,6 +5,7 @@ function main() {
     container.setAttribute('class', 'container');
     container.setAttribute('id', 'container');
     app.appendChild(container);
+    checkURLpage();
     var page = getPage();
     document.getElementById('page').innerHTML = page;
 
@@ -18,11 +19,11 @@ function main() {
         var movielist = data.results;
 
     // Log each movie's title & picture
-        var mid = 0;
+      
         movielist.forEach(movie => {
             const card = document.createElement('div');
             card.setAttribute('class', 'card');
-            card.setAttribute('id', mid);
+           
 
             const h1 = document.createElement('h1');
             h1.textContent = movie.title;
@@ -38,12 +39,12 @@ function main() {
             //card.appendChild(h2);
             card.appendChild(img);
 
-            document.getElementById(mid).onclick = function () {
-                console.log(movie.id);
-                 window.location.pathname = "../../Home/MovieDetail.cshtml";
+    
+            card.onclick = function () {
+                window.sessionStorage.setItem("mid", movie.id);
+                 window.location.pathname = "../../Home/MovieDetail";
             }
-            mid = mid + 1;
-
+           
         });
 
     }
@@ -103,7 +104,7 @@ function main() {
 function nextClick() {
     Ipage = Number(document.getElementById('page').innerText) + 1;
     window.sessionStorage.setItem("page", Ipage.toString());
-    location.reload();
+    updateURL();
    
 }
 
@@ -112,7 +113,7 @@ function previousClick() {
     Ipage = Number(document.getElementById('page').innerText) - 1
     if (Ipage > 0) {
         window.sessionStorage.setItem("page", Ipage.toString());
-        location.reload();
+        updateURL();
     }
    
 }
@@ -140,7 +141,7 @@ function jumpPage() {
         document.getElementById("tpdown").value = null;
     }
     window.sessionStorage.setItem("page", Ipage);
-    location.reload();
+    updateURL();
 }
 
 function showPage() {
@@ -150,3 +151,28 @@ function showPage() {
     document.getElementById("myDiv").style.display = "block";
 }
 
+function updateURL() {
+    url = window.location.href;
+    addURL = "&page=" + getPage();
+    if (url.includes("&page=")) {
+        pre = url.split("&page=");
+        window.location.href = pre[0] + addURL;
+    }
+    else {
+        window.location.search += addURL;
+    }
+
+}
+
+
+function checkURLpage() {
+    current = getPage();
+    url = window.location.href;
+    if (url.includes("&page=")) {
+        newp = url.split("&page=")[1];
+
+        if (!(current === newp)) {
+            window.sessionStorage.setItem("page", newp);
+        }
+    }
+}

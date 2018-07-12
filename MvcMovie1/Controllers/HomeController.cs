@@ -11,7 +11,7 @@ namespace MvcMovie1.Controllers
     public class HomeController : Controller
     {
         
-        public IActionResult Index(string pageID)
+        public IActionResult Index()
         {
             return View();
         }
@@ -29,6 +29,21 @@ namespace MvcMovie1.Controllers
 
             return View();
         }
+
+
+        public IActionResult MovieDetail()
+        {
+            ViewData["Message"] = "See more movie details";
+
+            return View();
+        }
+
+
+
+
+
+
+
 
         public IActionResult Error()
         {

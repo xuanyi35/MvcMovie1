@@ -1,5 +1,24 @@
-﻿@{
-    ViewData["Title"] = "About";
-}
+﻿<meta charset="UTF-8">
+<script src="~/js/detailscript.js"></script>
 
-<p>shenmegui</p>
+<h4>@ViewData["Message"]</h4>
+
+<body onload="mainDetail()" style=" font-family: Comic Sans MS; ">
+    <h3 id='t'  style="margin-left:50px"> Title </h3>
+    <h4 id='ot' style="margin-left:50px"> Original Title </h4>
+    <div style="float: left; width: 30%; ">
+        <img id='pic' alt="Movie Picture"  style="margin-left:50px">
+    </div>
+    <div style="float: right; width: 70%;  ">
+        <p style="background-color :rgb(192, 217, 255); font-size: 20px;    margin-left:50px"> OverView </p>
+        <p id='overview'  style="margin-left:100px"> overview </p>
+<!--p style="background-color :rgb(192, 217, 255); font-size: 20px;"> Home Page </p-->
+        <a id='hp' target="_blank"   style="background-color :rgb(192, 217, 255); font-size: 20px;   margin-left:50px" > Go to home page </a>
+    </div>
+
+
+    <div id='root' style="display:block"><div>
+
+
+
+</body>
