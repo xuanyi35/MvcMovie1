@@ -22,22 +22,28 @@
             p.style.display = 'inline-block';
             p.style.padding = '5px';
             p.innerHTML = genre.name;
-            //const p1 = document.createElement('p');
-          // p1.style.display = 'inline-block';
-           // p1.innerHTML = '&nbsp;';
             root.appendChild(p);
-           // root.appendChild(p1);
+
 
 
         });
 
         overview = document.getElementById('overview')
         overview.innerHTML = movie.overview;
-        overview.style.paddingLeft = "30px";
+        overview.style.paddingLeft = "10px";
+
+        collection = document.getElementById('collection')
+        collection.innerHTML = movie.belongs_to_collection.name;
+        collection.style.paddingLeft = "10px";
+
+        rdate = document.getElementById('rdate')
+        rdate.innerHTML = movie.release_date;
+        rdate.style.paddingLeft = "30px";
+  
         if (movie.homepage != null) {
-            hp = document.getElementById('hp');
             hp.href = movie.homepage;
-            hp.style.paddingLeft = "30px";
+            hp = document.getElementById('hp');
+            hp.innerHTML = "  Go to home page  "
         }
     }
     request.send();

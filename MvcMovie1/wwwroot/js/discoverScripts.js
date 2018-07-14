@@ -1,17 +1,25 @@
+var apiurl = 'https://api.themoviedb.org/3/discover/movie?api_key=b7f9af2647fdef6d0633f07337802317&sort_by=popularity.desc&page=1';
+
 function main() {
     const app = document.getElementById('root');       
     app.style.display = "none";
     const container = document.createElement('div');                // root append container
-    container.setAttribute('class', 'container');
+    container.setAttribute('class', 'container1');
     container.setAttribute('id', 'container');
+    container.setAttribute("box-sizing"," border-box");
     app.appendChild(container);
     checkURLpage();
+    api = getApi();
+    if (api.includes("&WithTitle=")){
+        const searchstr = document.createElement('h3');
+        searchstr.innerHTML = "Serch result for : " + window.sessionStorage.getItem("keystr");
+    }
+
     var page = getPage();
     document.getElementById('page').innerHTML = page;
 
-    url = 'https://api.themoviedb.org/3/discover/movie?page='+page+'&include_video=false&include_adult=false&sort_by=popularity.desc&language=en-US&api_key=b7f9af2647fdef6d0633f07337802317';
     var request = new XMLHttpRequest()
-    request.open("GET", url);
+    request.open("GET", api);
     request.onload = function () {
 
         // Begin accessing JSON data here
@@ -29,20 +37,17 @@ function main() {
             h1.textContent = movie.title;
            
             const img = document.createElement("img");
-            //movie.overview = movie.overview.substring(0, 300);
-            //p.textContent = movie.overview;
             img.src = "https://image.tmdb.org/t/p/w200" + movie.poster_path;
 
 
             container.appendChild(card);                    // container append cards (movies)
             card.appendChild(h1);
-            //card.appendChild(h2);
             card.appendChild(img);
 
     
             card.onclick = function () {
                 window.sessionStorage.setItem("mid", movie.id);
-                 window.location.pathname = "../../Home/MovieDetail";
+                window.location.href = "../../Home/MovieDetail";
             }
            
         });
@@ -95,7 +100,7 @@ function main() {
 
     document.getElementById('godown').onclick = jumpPage;
 
-    myVar = setTimeout(showPage, 1000);
+    myVar = setTimeout(showPage, 500);
     
 
 }
@@ -121,7 +126,7 @@ function previousClick() {
 // get previous page number
 function getPage() {
     var pg = window.sessionStorage.getItem("page");
-    if (pg == null) {
+    if (pg == '') {
        // console.log('1');
         return '1';
     }
@@ -175,4 +180,55 @@ function checkURLpage() {
             window.sessionStorage.setItem("page", newp);
         }
     }
+    else {
+        window.sessionStorage.setItem("page", '1');
+    }
+    //////// api 
+    if (url.includes("&WithTitle=")) {
+        window.sessionStorage.setItem("apiurl", 'https://api.themoviedb.org/3/search/movie?api_key=b7f9af2647fdef6d0633f07337802317&query=' + url.split("&WithTitle=")[1]);
+    }
+    else {
+        window.sessionStorage.setItem("apiurl", apiurl);
+    }
 }
+
+
+function getApi() {
+    var apig = window.sessionStorage.getItem("apiurl");
+    if (apig == null) {
+        window.sessionStorage.setItem("apiurl", apiurl);
+        return apiurl;
+    }
+    else {
+        
+        page = getPage();
+        pre = apig.split('&page=');
+        apig = pre[0] + '&page=' + page;
+        console.log(apig);
+        window.sessionStorage.setItem("apiurl", apig);
+    }
+    return apig;
+}
+
+
+function byTitle() {
+    key = document.getElementById('key').value;
+    console.log(key);
+    if (key != '') {
+        apiurl = 'https://api.themoviedb.org/3/search/movie?api_key=b7f9af2647fdef6d0633f07337802317&query=' + key + '&page=1'
+        window.sessionStorage.setItem("page", '1');
+        window.sessionStorage.setItem("apiurl", apiurl);
+        window.sessionStorage.setItem("keystr", key);
+
+        url = window.location.href;
+
+        if (url.includes("&page=")) {
+            pre = url.split("&page=");
+            window.location.href = pre[0] + "&WithTitle=" + key;
+        }
+        else {
+            window.location.search += "&WithTitle=" + key;
+        }
+    }
+}
+
