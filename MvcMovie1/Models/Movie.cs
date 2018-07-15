@@ -23,5 +23,4 @@ namespace MvcMovie1.Models
         public string Homepage { get; set; }
     }
 
-    
 }

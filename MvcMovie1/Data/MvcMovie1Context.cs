@@ -14,5 +14,8 @@ namespace MvcMovie1.Models
         }
 
         public DbSet<MvcMovie1.Models.Movie> Movie { get; set; }
+
+        public DbSet<MvcMovie1.Models.User> User { get; set; }
+
     }
 }
