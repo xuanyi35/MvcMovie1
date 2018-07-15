@@ -9,7 +9,7 @@ namespace MvcMovie1.Migrations
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            /*migrationBuilder.CreateTable(
+            migrationBuilder.CreateTable(
                 name: "Movie",
                 columns: table => new
                 {
@@ -24,7 +24,7 @@ namespace MvcMovie1.Migrations
                 {
                     table.PrimaryKey("PK_Movie", x => x.ID);
                 });
-                */
+                
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

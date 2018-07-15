@@ -10,18 +10,17 @@ namespace MvcMovie1.Models
     public class Movie
     {
         public int ID { get; set; }
-       // [Required]
+        [Required]
         public string Title { get; set; }
         [Required]
         [Display(Name = "Release Date")]
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime ReleaseDate { get; set; }
-     //   [Required]
-        public string Genre { get; set; }
         [Required]
-        public decimal Price { get; set; }
-        public string Comment { get; set; }
+        public string Genre { get; set; }
+
+        public string Homepage { get; set; }
     }
 
     
