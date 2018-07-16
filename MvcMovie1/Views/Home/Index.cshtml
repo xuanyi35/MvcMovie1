@@ -1,6 +1,10 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+
+
+
+
 <!--link rel="stylesheet" href="~/css/gallery.css" /-->
 <link href="https://fonts.googleapis.com/css?family=Dosis:400,700" rel="stylesheet">
 <link rel="stylesheet" href="~/css/cards.css" />
@@ -10,7 +14,7 @@
 
 <h2 style="text-align:center "> Welcome to Movie Station !</h2>
 <body onload="main()" , id="moviesL">
-    <div id="loader"></div>
+    <div id="loader">  </div>
     <div style="display:none;" id="myDiv" class="animate-bottom">
         <div class="bar">
             <button id="previous" class="btn1" onClick="previousClick()">  < </button>
@@ -24,13 +28,15 @@
             <img src="../../images/search.png" data-toggle="dropdown" style="box-sizing: border-box; width:18%; min-width:40px; float:right; ">
             <div class="dropdown-menu" style="width:100%;  float:right; position:relative; background: rgba(255,255,255,0.8);">
                 <br />
-                <input type='text' style="width: 90% ; margin-left:5%"  id="key">
+                <input type='text' style="width: 90% ; margin-left:5%" id="key">
                 <button class="dropdown-item" onclick=" byTitle()">Search Keyword</button>
                 <button class="dropdown-item" onclick=" ">Search Geners</button>
                 <br />
             </div>
             <div style="float:right;  min-width:50px;  position: absolute;  top: 100%;"> </div>
         </div>
+
+
 
         <div id="root"> </div>
     </div>

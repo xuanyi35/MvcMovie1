@@ -45,6 +45,9 @@
             hp = document.getElementById('hp');
             hp.innerHTML = "  Go to home page  "
         }
+        else {
+            hp = document.getElementById('hp').style.display = "none";
+        }
     }
     request.send();
 }

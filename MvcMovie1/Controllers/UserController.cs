@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using MvcMovie1.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authorization;
 
 
 namespace MvcMovie1.Controllers
@@ -24,7 +25,7 @@ namespace MvcMovie1.Controllers
         {
             return View(await _context.User.ToListAsync());
         }
-
+        ////////////////////////////////////////
 
         // GET: Users/Create
         public IActionResult Create()
@@ -37,17 +38,70 @@ namespace MvcMovie1.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("UserID,UserName, Password")] User user)
+        public async Task<IActionResult> Create([Bind("UserID,UserName, Password,ConfirmPassword")] User user)
         {
+            var dbuser = await _context.User.SingleOrDefaultAsync(m => m.UserName == user.UserName);
+            if (dbuser != null) {
+                TempData["ERROR"] = "UserName has been taken";
+                return View(user);
+            }
             if (ModelState.IsValid)
             {
                 _context.Add(user);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(Login));
             }
             return View(user);
         }
 
 
+        public  IActionResult Login()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult>Success([Bind("UserID,UserName, Password")] User user)
+        {
+            if (user.UserName == null)
+            {
+                TempData["ERROR"] = "UserName cannot be empty";
+                return RedirectToAction(nameof(Login));
+            }
+
+            var dbuser = await _context.User.SingleOrDefaultAsync(m => m.UserName == user.UserName);
+            if (dbuser == null)
+            {
+                TempData["ERROR"] = "User does not exist";
+                return RedirectToAction(nameof(Login));
+            }
+
+
+            if (user.Password == "") {
+                TempData["ERROR"] = "password cannot be empty";
+                return RedirectToAction(nameof(Login));
+            }
+            else if (user.Password == dbuser.Password) {
+                TempData["UserName"] = user.UserName;
+                TempData["UserID"] = dbuser.UserID;
+                return RedirectToAction("Index", "Home");
+            }
+            else {
+                TempData["ERROR"] = "UserName or Password is incorrect";
+                return RedirectToAction(nameof(Login));
+            }
+               
+        }
+
+        public IActionResult Signout()
+        {
+            TempData["UserName"] = null;
+            TempData["UserID"] = null;
+            return RedirectToAction("Index", "Home");
+        }
+
+
     }
+
 }

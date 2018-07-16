@@ -24,7 +24,8 @@ namespace MvcMovie1.Models
                          Title = "When Harry Met Sally",
                          ReleaseDate = DateTime.Parse("1989-1-11"),
                          Genre = "Romantic Comedy",
-                         Homepage= "d"
+                         Homepage= "d",
+                         UserID=1,
                      },
 
                      new Movie
@@ -32,7 +33,8 @@ namespace MvcMovie1.Models
                          Title = "Ghostbusters ",
                          ReleaseDate = DateTime.Parse("1984-3-13"),
                          Genre = "Comedy",
-                         Homepage = "d"
+                         Homepage = "d",
+                         UserID=1,
                      },
 
                      new Movie
@@ -40,7 +42,8 @@ namespace MvcMovie1.Models
                          Title = "Ghostbusters 2",
                          ReleaseDate = DateTime.Parse("1986-2-23"),
                          Genre = "Comedy",
-                         Homepage = "d"
+                         Homepage = "d",
+                         UserID=6
                      },
 
                    new Movie
@@ -48,7 +51,8 @@ namespace MvcMovie1.Models
                        Title = "Rio Bravo",
                        ReleaseDate = DateTime.Parse("1959-4-15"),
                        Genre = "Western",
-                       Homepage = "d"
+                       Homepage = "d",
+                       UserID=6
                    }
                 );
                 context.SaveChanges();

@@ -52,3 +52,18 @@ div.transbox p, h2, h3, address {
 body {
     font-family: Comic Sans MS;
 }
+
+
+
+@media only screen and (max-width: 20cm/*800px*/) {
+    h2 {
+        font-size: 17px;
+    }
+
+    h3 {
+        font-size: 15px;
+    }
+    h4 {
+        font-size: 15px;
+    }
+}

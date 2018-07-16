@@ -145,8 +145,10 @@ function jumpPage() {
         Ipage = document.getElementById("tpdown").value;
         document.getElementById("tpdown").value = null;
     }
-    window.sessionStorage.setItem("page", Ipage);
-    updateURL();
+    if (Ipage != ''){
+        window.sessionStorage.setItem("page", Ipage);
+        updateURL();
+    }
 }
 
 function showPage() {

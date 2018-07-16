@@ -1,0 +1,38 @@
+﻿@model MvcMovie1.Models.User
+
+
+<h2 style="text-align:center">Login </h2>
+
+
+<hr />
+
+
+<form asp-action="Success" style="width:70%;  margin: 0 auto;">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div>
+        <label asp-for="UserName" class="control-label"></label>
+        <input asp-for="UserName" class="form-control" />
+
+    </div>
+    <div>
+        <label asp-for="Password" class="control-label"></label>
+        <input asp-for="Password" class="form-control" />
+
+    </div>
+
+    <br>
+    <p style="color:red;" >@TempData["ERROR"] </p>
+    <br >
+
+    <div>
+        <input type="submit" value="Login" class="btn btn-default" style="float:right; margin-right: 1cm" />
+    </div>
+</form>
+
+<!--div>
+    <a asp-action="Index">Back to List</a>
+</div-->
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -21,7 +21,18 @@ namespace MvcMovie1.Controllers
         // GET: Movies
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Movie.ToListAsync());
+
+            //return View(await _context.Movie.ToListAsync());
+
+            var movies = from m in _context.Movie
+                         select m;
+            object uid = TempData.Peek("UserID");
+            if (uid != null)
+            {
+                movies = movies.Where(s => s.UserID == Convert.ToInt32(uid));
+            }
+
+            return View(await movies.ToListAsync());
         }
 
         // GET: Movies/Details/5
@@ -57,6 +68,7 @@ namespace MvcMovie1.Controllers
         {
             if (ModelState.IsValid)
             {
+                movie.UserID = Convert.ToInt32(TempData.Peek("Userid"));
                 _context.Add(movie);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -148,5 +160,50 @@ namespace MvcMovie1.Controllers
         {
             return _context.Movie.Any(e => e.ID == id);
         }
+
+    
+
+      
+        // POST: Movies/CreateFromApi
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+         [HttpPost]
+         [ValidateAntiForgeryToken]
+         public async Task<IActionResult> CreateFromApi(Movie movie)
+         {
+             //return RedirectToAction("About", "Home");
+
+             if (TempData.Peek("UserId") == null)
+             {
+                 return RedirectToAction("About", "Home");
+             }
+             else
+             {
+                   movie.Title = Convert.ToString(ViewData["Title"]);
+                   movie.ReleaseDate = Convert.ToDateTime(ViewData["ReleaseDate"]);
+                   movie.Genre = Convert.ToString(ViewData["Genre"]);
+                   movie.UserID = Convert.ToInt32(TempData.Peek("UserId"));
+                    movie.Homepage = Convert.ToString(ViewData["Homepage "]);
+
+                 /*movie.Title = "xxxxx";
+                 movie.ReleaseDate = DateTime.Parse("2018-9-3");
+                 movie.UserID = Convert.ToInt32(TempData.Peek("UserId"));
+                 movie.Genre = "Romantic Comedy";
+                 */
+                 _context.Add(movie);
+                 await _context.SaveChangesAsync();
+                 return RedirectToAction("Index", "Home");
+             }
+
+         }
+         
+
+
+
+
+
+
+
+
     }
 }
