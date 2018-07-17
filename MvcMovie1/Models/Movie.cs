@@ -20,6 +20,7 @@ namespace MvcMovie1.Models
         [Required]
         public string Genre { get; set; }
 
+        [Display(Name = "Home Page")]
         public string Homepage { get; set; }
         [Required]
         public int UserID { get; set; }

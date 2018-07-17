@@ -1,5 +1,6 @@
 var apiurl = 'https://api.themoviedb.org/3/discover/movie?api_key=b7f9af2647fdef6d0633f07337802317&sort_by=popularity.desc&page=1';
 
+
 function main() {
     const app = document.getElementById('root');       
     app.style.display = "none";
@@ -10,7 +11,7 @@ function main() {
     app.appendChild(container);
     checkURLpage();
     api = getApi();
-    if (api.includes("&WithTitle=")){
+    if (api.includes("&WithKeyword=")){
         const searchstr = document.createElement('h3');
         searchstr.innerHTML = "Serch result for : " + window.sessionStorage.getItem("keystr");
     }
@@ -186,8 +187,19 @@ function checkURLpage() {
         window.sessionStorage.setItem("page", '1');
     }
     //////// api 
-    if (url.includes("&WithTitle=")) {
-        window.sessionStorage.setItem("apiurl", 'https://api.themoviedb.org/3/search/movie?api_key=b7f9af2647fdef6d0633f07337802317&query=' + url.split("&WithTitle=")[1]);
+    if (url.includes("&WithKeyword=")) {
+        window.sessionStorage.setItem("apiurl", 'https://api.themoviedb.org/3/search/movie?api_key=b7f9af2647fdef6d0633f07337802317&query=' + url.split("&WithKeyword=")[1]);
+    }
+    else if (url.includes("&WithGenres=")) {
+
+        if (url.includes("&page=")) {
+            window.sessionStorage.setItem("apiurl", 'https://api.themoviedb.org/3/discover/movie?api_key=b7f9af2647fdef6d0633f07337802317&sort_by=popularity.desc&page=1&with_genres=' + url.split("&WithGenres=")[1].split("&page=")[0]);
+        }
+        else {
+
+
+            window.sessionStorage.setItem("apiurl", 'https://api.themoviedb.org/3/discover/movie?api_key=b7f9af2647fdef6d0633f07337802317&sort_by=popularity.desc&page=1&with_genres=' + url.split("&WithGenres=")[1]);
+        }
     }
     else {
         window.sessionStorage.setItem("apiurl", apiurl);
@@ -206,7 +218,9 @@ function getApi() {
         page = getPage();
         pre = apig.split('&page=');
         apig = pre[0] + '&page=' + page;
-        console.log(apig);
+        if ( (pre.length==2)&&(pre[1].includes("&with_genres="))) {
+            apig = apig + "&with_genres=" + pre[1].split("&with_genres=")[1];
+        }
         window.sessionStorage.setItem("apiurl", apig);
     }
     return apig;
@@ -224,13 +238,126 @@ function byTitle() {
 
         url = window.location.href;
 
-        if (url.includes("&page=")) {
-            pre = url.split("&page=");
-            window.location.href = pre[0] + "&WithTitle=" + key;
+        if (url.includes("&WithGenres=")) {
+            window.location.href = url.split("&WithGenres=")[0] + "&WithKeyword=" + key;
         }
+        else if (url.includes("&WithKeyword=")) {
+            window.location.href = url.split("&WithKeyword=")[0] + "&WithKeyword=" + key;
+        }
+       // else if (url.includes("&page=")) {
+        //    pre = url.split("&page=");
+        //    window.location.href = pre[0] + "&WithKeyword=" + key;
+       // }
         else {
-            window.location.search += "&WithTitle=" + key;
+            window.location.search += "&WithKeyword=" + key;
         }
     }
 }
 
+function byGenre() {
+    document.getElementById("dowmBox").style.display = "block";
+    var generAPI = 'https://api.themoviedb.org/3/genre/movie/list?api_key=b7f9af2647fdef6d0633f07337802317';
+    const box = document.getElementById("geners");
+    if (box.style.display == "block") {
+        box.style.display = "none";
+        box.removeChild(document.getElementById("tb"));
+    }
+    else {
+        document.getElementById("key").style.display = "none";
+        document.getElementById("sbtn").style.display = "none";
+        box.style.display = "block";
+        var x = document.createElement("TABLE");
+        x.setAttribute("id", "tb");
+        x.style.float = "right";
+        x.style.width = "100%";
+        x.style.overflow = " scroll";
+        box.appendChild(x);
+
+        var request = new XMLHttpRequest()
+        request.open("GET", generAPI);
+        request.onload = function () {
+
+            // Begin accessing JSON data here
+            var generList = JSON.parse(this.response).genres;
+            console.log(generList);
+            var i = 0;
+            var y = x.insertRow(0);
+
+            for (i; i < generList.length; i++) {
+                var gener = generList[i];
+                funstr = "GenreAPI(" + gener.id + ")";
+                if ((1 + i) % 4 == 1) {
+                    var y = x.insertRow(Math.floor((1 + i) / 4));
+                    var z = y.insertCell((1 + i) % 4 - 1);
+                    z.innerHTML = gener.name;
+                    z.style.border = "2px solid rgb(228, 227, 247)";
+                    z.style.padding = "0px 1px 1px 0px";
+                    z.setAttribute("onclick", funstr);
+                }
+                else {
+                    var z = y.insertCell((1 + i) % 4 - 1);
+                    z.innerHTML = gener.name;
+                    z.style.border = "2px solid rgb(228, 227, 247)";
+                    z.style.padding = "0px 1px 1px 0px";
+                    z.setAttribute("onclick", funstr);
+                }
+            }
+            var j = 4 - (generList.length % 4);
+            while (j > 0) {
+                var z = y.insertCell(4 - j);
+                z.innerHTML = "";
+                z.style.border = "2px solid rgb(228, 227, 247)";
+                j -= 1;
+            }
+
+        }
+
+        request.send();
+    }
+}
+
+
+function GenreAPI(gid) {
+
+
+
+    console.log(gid);
+    apiurl = 'https://api.themoviedb.org/3/discover/movie?api_key=b7f9af2647fdef6d0633f07337802317&sort_by=popularity.desc&page=1&with_genres=' + gid;
+    window.sessionStorage.setItem("page", '1');
+    window.sessionStorage.setItem("apiurl", apiurl);
+
+    url = window.location.href;
+    if (url.includes("&WithGenres=")) {
+
+        pre = url.split("&WithGenres=");
+        window.location.href = pre[0] + "&WithGenres=" + gid;
+    }
+    else if (url.includes("&WithKeyword=")) {
+        window.location.href = url.split("&WithKeyword=")[0] + "&WithGenres=" + gid;
+    }
+    //else if (url.includes("&page=")) {
+    ///    pre = url.split("&page=");
+   //    window.location.href = pre[0] + "&WithGenres=" + gid;
+  //  }
+    else {
+        window.location.search += "&WithGenres=" + gid;
+    }
+
+}
+
+
+function show() {
+    document.getElementById("dowmBox").style.display = "block";
+    var key = document.getElementById("key");
+    var sbtn = document.getElementById("sbtn");
+
+    if (key.style.display == "block") {
+        key.style.display = "none";
+        sbtn.style.display = "none";
+    }
+    else {
+        key.style.display = "block";
+        sbtn.style.display = "block";
+        document.getElementById("geners").style.display = "none";
+    }
+}

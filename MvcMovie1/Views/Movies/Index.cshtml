@@ -1,23 +1,23 @@
 ﻿@model IEnumerable<MvcMovie1.Models.Movie>
 <script>window.sessionStorage.removeItem('page');</script>
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "My MovieList";
 }
 
-<h2>Index</h2>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
+
 
 @{
     if (TempData.Peek("UserName") == null)
     {
-        <h1>Please Login to see your Movie List</h1>
+        <h2 style="padding: 20% 0 0 20%">Please Login to see your Movie List</h2>
     }
     else
     {
-
+        <br /><br />
+        <p>
+            <a asp-action="Create">Add new movie</a>
+        </p>
         <table class="table" style="display:table;">
             <thead>
                 <tr>
@@ -50,7 +50,10 @@
                             @Html.DisplayFor(modelItem => item.Genre)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.Homepage)
+                            <!--@Html.DisplayFor(modelItem => item.Homepage)-->
+                            @if (item.Homepage != null) {
+                                <a href= @item.Homepage >  Go !</a>
+                            }
                         </td>
 
                     </tr>

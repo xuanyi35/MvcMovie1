@@ -8,7 +8,7 @@
 <body onload="mainDetail()">
 
 
-    <h2 id='t' > @ViewData["Title"] </h2>
+    <h2 id='t' runat="server" > Title</h2>
     <h3 id='ot'> Original Title </h3>
     <div class='movieIMG '>
         <img id='pic' alt="Movie Picture" style="width: 90%; height: auto; margin-left:5%;"><br />
@@ -19,15 +19,15 @@
 
     <div class='info'>
         <p style="background-color :rgb(192, 217, 255); font-size: 15px;display:inline-block"> Release Date </p>
-        <p id='rdate' style="display:inline-block">@ViewData["ReleaseDate"] </p><br />
+        <p id='rdate' style="display:inline-block" runat="server"> Release Date </p><br />
         <p style="background-color :rgb(192, 217, 255); font-size: 15px;display:inline-block"> OverView </p> <br>
         <p id='overview' style="line-height: 1.6;"> overview </p>
         <p style="background-color :rgb(192, 217, 255); font-size: 15px;display:inline-block"> Belongs to collection </p> <br>
         <p id='collection'> belongs to collection </p>
 
 
-        <a id='hp' target="_blank" style=" font-size: 20px; margin-left: auto; margin-right: auto; width:200px; display:block"> @ViewData["Homepage "] </a><br>
-        <div id='root' style="display:block; padding-left:30px;  ">@ViewData["Genre"]</div>
+        <a id='hp' target="_blank" style=" font-size: 20px; margin-left: auto; margin-right: auto; width:200px; display:block"  runat="server"> Homepage   </a><br>
+        <div id='root' style="display:block; padding-left:30px;"  runat="server" > Genre</div>
 
 </div>
 

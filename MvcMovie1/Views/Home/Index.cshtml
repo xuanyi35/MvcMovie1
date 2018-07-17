@@ -1,10 +1,6 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
-
-
-
-
 <!--link rel="stylesheet" href="~/css/gallery.css" /-->
 <link href="https://fonts.googleapis.com/css?family=Dosis:400,700" rel="stylesheet">
 <link rel="stylesheet" href="~/css/cards.css" />
@@ -25,15 +21,17 @@
         </div>
 
         <div class="dropdown dropleft" style=" padding-top:7%; right:3%; width:30%;  position: fixed;  z-index: 99 ;">
-            <img src="../../images/search.png" data-toggle="dropdown" style="box-sizing: border-box; width:18%; min-width:40px; float:right; ">
-            <div class="dropdown-menu" style="width:100%;  float:right; position:relative; background: rgba(255,255,255,0.8);">
+            <img src="../../images/search.png" data-toggle="dropdown" style="box-sizing: border-box; width:18%; min-width:40px; float:right; " id="dropleft">
+            <div class="dropdown-menu" style="width:100%;  float:right; position:relative; background: rgba(255,255,255,0.8); " id="dowmBox">
                 <br />
-                <input type='text' style="width: 90% ; margin-left:5%" id="key">
-                <button class="dropdown-item" onclick=" byTitle()">Search Keyword</button>
-                <button class="dropdown-item" onclick=" ">Search Geners</button>
+                <button class="dropdown-item" onclick=" show()">Search Keyword</button> <br />
+                <button class="dropdown-item" onclick="byGenre() ">Search Genres</button>
+                <input type='text' style="width: 90% ; margin-left:5%; display:none" id="key">
+                <button class="btn1" onclick=" byTitle()" id="sbtn" style="display:none; float:right; width:30%; max-width:1.5cm">Go!</button>
+                <div id="geners" style="display:none; float:right; margin-right: 3px; background: rgba(255,255,255,0.9); "> </div>
                 <br />
             </div>
-            <div style="float:right;  min-width:50px;  position: absolute;  top: 100%;"> </div>
+            <div style="float:right;  min-width:50px;  position: absolute;  top: 100%;   "> </div>
         </div>
 
 
