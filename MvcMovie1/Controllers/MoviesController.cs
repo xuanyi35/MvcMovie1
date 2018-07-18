@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using MvcMovie1.Models;
+using System.Web;
+using HtmlAgilityPack;
 
 namespace MvcMovie1.Controllers
 {
@@ -170,17 +172,27 @@ namespace MvcMovie1.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
          [HttpPost]
          [ValidateAntiForgeryToken]
-         public async Task<IActionResult> CreateFromApi(Movie movie)
+         public async Task<IActionResult> CreateFromApi(int id , Movie movie)
          {
-             //return RedirectToAction("About", "Home");
+
+
 
              if (TempData.Peek("UserId") == null)
              {
+            
                  return RedirectToAction("About", "Home");
              }
              else
              {
-                   movie.Title = Convert.ToString(ViewData["Title"]);
+
+                //HtmlWeb page = new HtmlWeb();
+                //HtmlDocument document = page.Load("http://localhost:50450/Home/MovieDetail");
+
+              
+
+
+
+                movie.Title = Convert.ToString(ViewData["Title"]);
                    movie.ReleaseDate = Convert.ToDateTime(ViewData["ReleaseDate"]);
                    movie.Genre = Convert.ToString(ViewData["Genre"]);
                    movie.UserID = Convert.ToInt32(TempData.Peek("UserId"));
@@ -194,7 +206,8 @@ namespace MvcMovie1.Controllers
                  _context.Add(movie);
                  await _context.SaveChangesAsync();
                  return RedirectToAction("Index", "Home");
-             }
+
+            }
 
          }
          

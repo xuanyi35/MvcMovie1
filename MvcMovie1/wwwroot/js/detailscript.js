@@ -1,6 +1,7 @@
 ﻿function mainDetail() {
+    updateMid();
     mid = window.sessionStorage.getItem("mid").toString();
-
+    
     url = 'https://api.themoviedb.org/3/movie/' + mid + '?api_key=b7f9af2647fdef6d0633f07337802317&language=en-US';
     var request = new XMLHttpRequest()
     request.open("GET", url);
@@ -50,4 +51,34 @@
         }
     }
     request.send();
+    updateURL();
+}
+
+
+
+
+function updateURL() {
+    url = window.location.href;
+    addURL = "?id=" + window.sessionStorage.getItem("mid").toString();
+    if (url.includes("?id=")) {
+        pre = url.split("?id=");
+        if (! (pre[1] === window.sessionStorage.getItem("mid").toString()) ){
+            window.location.href = pre[0] + addURL;
+        }
+    }
+    else {
+        window.location.search += addURL;
+    }
+
+}
+
+function updateMid() {
+    url = window.location.href;
+    if (url.includes("?id=")) {
+        newMID = url.split("?id=")[1];
+        current  = window.sessionStorage.getItem("mid").toString()
+        if (!(current === newMID)) {
+            window.sessionStorage.setItem("mid", newMID);
+        }
+    }  
 }

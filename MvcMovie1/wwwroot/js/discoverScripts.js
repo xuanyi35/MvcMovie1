@@ -48,7 +48,7 @@ function main() {
     
             card.onclick = function () {
                 window.sessionStorage.setItem("mid", movie.id);
-                window.location.href = "../../Home/MovieDetail";
+                window.location.href = "../../Home/MovieDetail?id=" + movie.id;
             }
            
         });
