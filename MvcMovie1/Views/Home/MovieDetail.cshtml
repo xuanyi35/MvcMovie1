@@ -12,7 +12,8 @@
     <h3 id='ot'> Original Title </h3>
     <div class='movieIMG '>
         <img id='pic' alt="Movie Picture" style="width: 90%; height: auto; margin-left:5%;"><br />
-        <form asp-area="" asp-controller="Movies" asp-action="CreateFromApi" style="margin-left:5%;"> 
+        <form asp-area="" asp-controller="Home" asp-action="MovieDetail"  style="margin-left:5%;"> 
+            <input  type="text" name="mid"  id="passvalue" value="this is mid"  style="display:none"/>
             <input type="submit" value="Add to my movie list " class="btn btn-default" />   
         </form>
     </div>

@@ -1,7 +1,9 @@
 ﻿function mainDetail() {
     updateMid();
     mid = window.sessionStorage.getItem("mid").toString();
-    
+
+    document.getElementById('passvalue').value = mid;
+
     url = 'https://api.themoviedb.org/3/movie/' + mid + '?api_key=b7f9af2647fdef6d0633f07337802317&language=en-US';
     var request = new XMLHttpRequest()
     request.open("GET", url);
@@ -59,9 +61,9 @@
 
 function updateURL() {
     url = window.location.href;
-    addURL = "?id=" + window.sessionStorage.getItem("mid").toString();
-    if (url.includes("?id=")) {
-        pre = url.split("?id=");
+    addURL = "?mid=" + window.sessionStorage.getItem("mid").toString();
+    if (url.includes("?mid=")) {
+        pre = url.split("?mid=");
         if (! (pre[1] === window.sessionStorage.getItem("mid").toString()) ){
             window.location.href = pre[0] + addURL;
         }
@@ -74,8 +76,8 @@ function updateURL() {
 
 function updateMid() {
     url = window.location.href;
-    if (url.includes("?id=")) {
-        newMID = url.split("?id=")[1];
+    if (url.includes("?mid=")) {
+        newMID = url.split("?mid=")[1];
         current  = window.sessionStorage.getItem("mid").toString()
         if (!(current === newMID)) {
             window.sessionStorage.setItem("mid", newMID);

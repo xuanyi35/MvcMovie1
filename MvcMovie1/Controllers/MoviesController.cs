@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using MvcMovie1.Models;
 using System.Web;
 using HtmlAgilityPack;
+using System.Diagnostics;
 
 namespace MvcMovie1.Controllers
 {
@@ -165,59 +166,6 @@ namespace MvcMovie1.Controllers
         }
 
     
-
-      
-        // POST: Movies/CreateFromApi
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-         [HttpPost]
-         [ValidateAntiForgeryToken]
-         public async Task<IActionResult> CreateFromApi(int id , Movie movie)
-         {
-
-
-
-             if (TempData.Peek("UserId") == null)
-             {
-            
-                 return RedirectToAction("About", "Home");
-             }
-             else
-             {
-
-                //HtmlWeb page = new HtmlWeb();
-                //HtmlDocument document = page.Load("http://localhost:50450/Home/MovieDetail");
-
-              
-
-
-
-                movie.Title = Convert.ToString(ViewData["Title"]);
-                   movie.ReleaseDate = Convert.ToDateTime(ViewData["ReleaseDate"]);
-                   movie.Genre = Convert.ToString(ViewData["Genre"]);
-                   movie.UserID = Convert.ToInt32(TempData.Peek("UserId"));
-                    movie.Homepage = Convert.ToString(ViewData["Homepage "]);
-
-                 /*movie.Title = "xxxxx";
-                 movie.ReleaseDate = DateTime.Parse("2018-9-3");
-                 movie.UserID = Convert.ToInt32(TempData.Peek("UserId"));
-                 movie.Genre = "Romantic Comedy";
-                 */
-                 _context.Add(movie);
-                 await _context.SaveChangesAsync();
-                 return RedirectToAction("Index", "Home");
-
-            }
-
-         }
-         
-
-
-
-
-
-
-
 
     }
 }

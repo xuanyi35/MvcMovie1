@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.0",
-    "signature": "830e780113b3e71370e01fb9e0153616598ea21e"
+    "signature": "5fb416d87ee2e2565339893e30d8112275aa17eb"
   },
   "compilationOptions": {
     "defines": [
@@ -27,7 +27,8 @@
           "Microsoft.AspNetCore.All": "2.0.6",
           "Microsoft.EntityFrameworkCore.Tools": "2.1.1",
           "Microsoft.NETCore.App": "2.0.0",
-          "Microsoft.VisualStudio.Web.CodeGeneration.Design": "2.0.3"
+          "Microsoft.VisualStudio.Web.CodeGeneration.Design": "2.0.3",
+          "RestSharp": "106.3.1"
         },
         "runtime": {
           "MvcMovie1.dll": {}
@@ -2549,6 +2550,14 @@
         },
         "compile": {
           "lib/netstandard1.0/Remotion.Linq.dll": {}
+        }
+      },
+      "RestSharp/106.3.1": {
+        "runtime": {
+          "lib/netstandard2.0/RestSharp.dll": {}
+        },
+        "compile": {
+          "lib/netstandard2.0/RestSharp.dll": {}
         }
       },
       "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {
@@ -5560,6 +5569,13 @@
       "sha512": "sha512-fK/76UmpC0FXBlGDFVPLJHQlDLYnGC+XY3eoDgCgbtrhi0vzbXDQ3n/IYHhqSKqXQfGw/u04A1drWs7rFVkRjw==",
       "path": "remotion.linq/2.2.0",
       "hashPath": "remotion.linq.2.2.0.nupkg.sha512"
+    },
+    "RestSharp/106.3.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-TmlN7SXjK52zzpQDTuzw7IH3XQ2Svtss/4zvQBKIgf74QIVxvlxoAqQYu1EhNQ1bMSBIQ4aK120BO7W+v8/kiQ==",
+      "path": "restsharp/106.3.1",
+      "hashPath": "restsharp.106.3.1.nupkg.sha512"
     },
     "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {
       "type": "package",
