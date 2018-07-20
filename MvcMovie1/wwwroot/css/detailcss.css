@@ -7,20 +7,135 @@
 
 
 .info {
+    padding-top: 5vh;
     margin-left: 30px;
     float: right;
     width: 65%;
 }
+a, p {
+    font-size: 1.3vw;
+}
+
+iframe {
+    /*float: right;*/
+    width: 56vw;
+    height: 42vw;
+    margin: 10px auto 30px 5vw;
+}
+
+.container2 {
+    padding-top: 15px;
+    width: 30%;
+    float: left;
+    height: 42vw;
+    box-sizing: border-box;
+    margin: auto;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.card2 {
+    margin: 5%;
+    background: white;
+    box-shadow: 2px 4px 25px rgba(0, 0, 0, .1);
+    border-radius: 12px;
+    overflow: auto;
+    width: 90%;
+    box-sizing: border-box;
+}
+
+    .card2 img {
+        display: block;
+        margin: 1rem auto;
+        box-sizing: border-box;
+        max-width: 100%;
+    }
+
+    .card2 p {
+        text-align: center;
+    }
+
+    .card2:hover {
+        box-shadow: 2px 8px 45px rgba(0, 0, 0, .15);
+        transform: translate3d(0, -2px, 0);
+    }
 
 
-@media only screen and (max-width: 20cm/*800px*/) {
+
+.clr:after {
+    clear: both;
+    content: "";
+    display: table;
+}
+
+
+
+
+@media only screen and (max-width: 30cm /*800px*/ ) {
+
+    a, p {
+        font-size: 1.9vw;
+    }
+}
+
+@media only screen and (max-width: 20cm /*800px*/ ) {
     .info, .movieIMG {
         width: 100%;
     }
+
     h2 {
-        font-size: 17px;
+        font-size: 5.5vw;
     }
+
     h3 {
-        font-size: 15px;
+        font-size: 5vw;
+    }
+
+
+
+    iframe {
+        float: none;
+        margin: 0px auto auto 6vw;
+        width: 72vw;
+        height: 56vw;
+    }
+
+    .container2 {
+        padding-top: 15px;
+        width: 68vw;
+        height: 80vw;
+        margin: auto auto auto 5vw;
+        transform: rotate(-90deg) translateY(-70vw);
+        transform-origin: right top;
+    }
+
+    .card2 {
+        display: inline-block;
+        margin-bottom: 10px;
+        background: white;
+        box-shadow: 2px 4px 25px rgba(0, 0, 0, .1);
+        border-radius: 12px;
+        overflow: auto;
+        width: 45vw;
+        box-sizing: border-box;
+        transform: rotate(90deg) translateY(-58vw);
+        transform-origin: left top;
+    }
+
+        .card2 img {
+            margin: 10px auto;
+            max-width: 60%;
+        }
+
+        .card2:hover {
+            box-shadow: 2px 8px 45px rgba(0, 0, 0, .15);
+            transform: rotate(90deg) translateY(-58vw);
+            transform-origin: left top;
+        }
+
+
+    a, p {
+        font-size: 4.5vw;
     }
 }
+
