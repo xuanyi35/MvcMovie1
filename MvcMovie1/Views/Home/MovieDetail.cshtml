@@ -5,33 +5,34 @@
 <link rel="stylesheet" href="~/css/detailcss.css" />
 <!--h4>@ViewData["Message"]</h4-->
 
-<body onload="mainDetail()">
+<body onload="mainDetail()" >
 
 
     <h2 id='t'> Title</h2>
     <h3 id='ot'> Original Title </h3>
-    <div class='movieIMG '>
-        <img id='pic' alt="Movie Picture" style="width: 90%; height: auto; margin-left:5%;"><br />
-        <form asp-area="" asp-controller="Home" asp-action="MovieDetail"  style="margin-left:5%;"> 
-            <input  type="text" name="mid"  id="passvalue" value="this is mid"  style="display:none"/>
-            <input type="submit" value="Add to my movie list " class="btn btn-default" />   
-        </form>
+    <div class="clr">
+        <div class='movieIMG '>
+            <img id='pic' alt="Movie Picture" style="width: 70%; height: auto; margin-left:15%;"><br />
+            <form asp-area="" asp-controller="Home" asp-action="MovieDetail" style="margin-left:5%;">
+                <input type="text" name="mid" id="passvalue" value="this is mid" style="display:none" />
+                <input type="submit" value="Add to my movie list " class="btn btn-default"  style="margin: 2vw 18%" />
+            </form>
+        </div>
+
+        <div class='info'>
+            <p style="background-color :rgb(192, 217, 255);display:inline-block; "> Release Date </p>
+            <p id='rdate' style="display:inline-block"> Release Date </p><br />
+            <p style="background-color :rgb(192, 217, 255); display:inline-block"> OverView </p> <br>
+            <p id='overview' style="line-height: 1.6;"> overview </p>
+            <p style="background-color :rgb(192, 217, 255); display:inline-block"> Belongs to collection </p> <br>
+            <p id='collection'> belongs to collection </p>
+
+
+            <a id='hp' target="_blank" style=" margin-left: auto; margin-right: auto; width:200px; display:block"> Homepage   </a><br>
+            <div id='root' style="display:block; padding-left:30px;"> Genres </div>
+
+        </div>
+
     </div>
-
-    <div class='info'>
-        <p style="background-color :rgb(192, 217, 255); font-size: 15px;display:inline-block"> Release Date </p>
-        <p id='rdate' style="display:inline-block" > Release Date </p><br />
-        <p style="background-color :rgb(192, 217, 255); font-size: 15px;display:inline-block"> OverView </p> <br>
-        <p id='overview' style="line-height: 1.6;"> overview </p>
-        <p style="background-color :rgb(192, 217, 255); font-size: 15px;display:inline-block"> Belongs to collection </p> <br>
-        <p id='collection'> belongs to collection </p>
-
-
-        <a id='hp' target="_blank" style=" font-size: 20px; margin-left: auto; margin-right: auto; width:200px; display:block"  > Homepage   </a><br>
-        <div id='root' style="display:block; padding-left:30px;"   > Genre</div>
-
-</div>
-
-
-
+    <div  id="id">   </div>
 </body>
