@@ -9,6 +9,7 @@ using MvcMovie1.Models;
 using System.Web;
 using HtmlAgilityPack;
 using System.Diagnostics;
+using Microsoft.AspNetCore.Http.Extensions;
 
 namespace MvcMovie1.Controllers
 {
@@ -25,8 +26,7 @@ namespace MvcMovie1.Controllers
         public async Task<IActionResult> Index()
         {
 
-            //return View(await _context.Movie.ToListAsync());
-
+            TempData["url"] = Request.GetDisplayUrl().ToString();
             var movies = from m in _context.Movie
                          select m;
             object uid = TempData.Peek("UserID");
@@ -41,6 +41,7 @@ namespace MvcMovie1.Controllers
         // GET: Movies/Details/5
         public async Task<IActionResult> Details(int? id)
         {
+            TempData["url"] = Request.GetDisplayUrl().ToString();
             if (id == null)
             {
                 return NotFound();
@@ -59,6 +60,7 @@ namespace MvcMovie1.Controllers
         // GET: Movies/Create
         public IActionResult Create()
         {
+            TempData["url"] = Request.GetDisplayUrl().ToString();
             return View();
         }
 
@@ -82,6 +84,7 @@ namespace MvcMovie1.Controllers
         // GET: Movies/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
+            TempData["url"] = Request.GetDisplayUrl().ToString();
             if (id == null)
             {
                 return NotFound();
@@ -134,6 +137,7 @@ namespace MvcMovie1.Controllers
         // GET: Movies/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
+            TempData["url"] = Request.GetDisplayUrl().ToString();
             if (id == null)
             {
                 return NotFound();

@@ -6,7 +6,8 @@ using Microsoft.AspNetCore.Mvc;
 using MvcMovie1.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authorization;
-
+using Microsoft.AspNetCore.Http.Extensions;
+using System.Diagnostics;
 
 namespace MvcMovie1.Controllers
 {
@@ -19,7 +20,7 @@ namespace MvcMovie1.Controllers
             _context = context;
         }
 
-
+        
         // GET: Users
         public async Task<IActionResult> Index()
         {
@@ -77,7 +78,6 @@ namespace MvcMovie1.Controllers
                 return RedirectToAction(nameof(Login));
             }
 
-
             if (user.Password == "") {
                 TempData["ERROR"] = "password cannot be empty";
                 return RedirectToAction(nameof(Login));
@@ -85,13 +85,14 @@ namespace MvcMovie1.Controllers
             else if (user.Password == dbuser.Password) {
                 TempData["UserName"] = user.UserName;
                 TempData["UserID"] = dbuser.UserID;
-                return RedirectToAction("Index", "Home");
+                var url = Convert.ToString(TempData["url"]);
+                return Redirect(url); 
             }
             else {
                 TempData["ERROR"] = "UserName or Password is incorrect";
                 return RedirectToAction(nameof(Login));
             }
-               
+            
         }
 
         public IActionResult Signout()
