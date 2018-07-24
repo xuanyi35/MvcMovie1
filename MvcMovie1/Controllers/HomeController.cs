@@ -5,6 +5,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using HtmlAgilityPack;
+using Microsoft.AspNetCore.Http.Extensions;
 using Microsoft.AspNetCore.Mvc;
 using MvcMovie1.Models;
 using Newtonsoft.Json;
@@ -17,28 +18,30 @@ namespace MvcMovie1.Controllers
         
         public IActionResult Index()
         {
+            
+            TempData["url"] = Request.GetDisplayUrl().ToString();
             return View();
         }
 
         public IActionResult About()
         {
+            TempData["url"] = Request.GetDisplayUrl().ToString();
             ViewData["Message"] = "Your application description page.";
-
             return View();
         }
 
         public IActionResult Contact()
         {
+            TempData["url"] = Request.GetDisplayUrl().ToString();
             ViewData["Message"] = "Your contact page.";
-
             return View();
         }
 
 
         public IActionResult MovieDetail()
         {
+            TempData["url"] = Request.GetDisplayUrl().ToString();
             ViewData["Message"] = "See more movie details";
-
             return View();
         }
 
@@ -66,7 +69,7 @@ namespace MvcMovie1.Controllers
         }
 
 
-        // POST: Movies/CreateFromApi
+        // POST: Movies/ add movie in api to favourite movie list
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -74,11 +77,9 @@ namespace MvcMovie1.Controllers
         public async Task<IActionResult> MovieDetail(int mid, Movie movie)
         {
 
-
-
             if (TempData.Peek("UserId") == null)
             {
-                return RedirectToAction("About", "Home"); 
+                return RedirectToAction("Login", "User"); 
             }
             else
             {
@@ -109,7 +110,7 @@ namespace MvcMovie1.Controllers
                 
                 _context.Add(movie);
                 await _context.SaveChangesAsync();
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Index","Movies");
 
             }
 

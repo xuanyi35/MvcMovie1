@@ -12,10 +12,11 @@
     float: right;
     width: 65%;
 }
+
 a, p {
     font-size: 1.3vw;
 }
-
+     
 iframe {
     /*float: right;*/
     width: 56vw;
@@ -133,8 +134,7 @@ iframe {
             transform-origin: left top;
         }
 
-
-    a, p {
+a, p {
         font-size: 4.5vw;
     }
 }

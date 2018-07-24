@@ -30,15 +30,15 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
+                    <li><a asp-area="" asp-controller="Home" asp-action="Index" style="font-size: 1em;">Home</a></li>
+                    <li><a asp-area="" asp-controller="Home" asp-action="About"  style="font-size: 1em;">About</a></li>
+                    <li><a asp-area="" asp-controller="Home" asp-action="Contact"  style="font-size: 1em;">Contact</a></li>
                 </ul>
                 @{
                     if (TempData.Peek("UserName") == null)
                     {
-                        <a asp-area="" asp-controller="User" asp-action="Create" style="float:right; margin-right:20px; padding-top:0.3cm">Sign up</a>
-                        <a asp-area="" asp-controller="User" asp-action="Login" style="float:right; margin-right:20px;padding-top:0.3cm">Login</a>
+                        <a asp-area="" asp-controller="User" asp-action="Create" style="float:right; margin-right:20px; padding-top:0.3cm; font-size: 1em;">Sign up</a>
+                        <a asp-area="" asp-controller="User" asp-action="Login" style="float:right; margin-right:20px;padding-top:0.3cm;  font-size: 1em;">Login</a>
 
                     }
                     else
@@ -54,7 +54,6 @@
     </nav>
     <div class="fixed-bg">
         <div class="transbox">
-            <div class="container-fluid body-content">
                 @RenderBody()
             </div>
         </div>
@@ -62,7 +61,7 @@
         <footer> 
             <p style="margin-left:30px; margin-right:30px">&copy; 2018 - MvcMovie1</p>
         </footer>
-    </div>
+
 
     <environment include="Development">
         <script src="~/lib/jquery/dist/jquery.js"></script>
