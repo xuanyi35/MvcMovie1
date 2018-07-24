@@ -99,7 +99,8 @@ namespace MvcMovie1.Controllers
         {
             TempData["UserName"] = null;
             TempData["UserID"] = null;
-            return RedirectToAction("Index", "Home");
+            var url = Convert.ToString(TempData["url"]);
+            return Redirect(url);
         }
 
 

@@ -244,10 +244,10 @@ function byTitle() {
         else if (url.includes("&WithKeyword=")) {
             window.location.href = url.split("&WithKeyword=")[0] + "&WithKeyword=" + key;
         }
-       // else if (url.includes("&page=")) {
-        //    pre = url.split("&page=");
-        //    window.location.href = pre[0] + "&WithKeyword=" + key;
-       // }
+        else if (url.includes("&page=")) {
+            pre = url.split("&page=");
+            window.location.href = pre[0] + "&WithKeyword=" + key;
+        }
         else {
             window.location.search += "&WithKeyword=" + key;
         }
@@ -335,10 +335,10 @@ function GenreAPI(gid) {
     else if (url.includes("&WithKeyword=")) {
         window.location.href = url.split("&WithKeyword=")[0] + "&WithGenres=" + gid;
     }
-    //else if (url.includes("&page=")) {
-    ///    pre = url.split("&page=");
-   //    window.location.href = pre[0] + "&WithGenres=" + gid;
-  //  }
+    else if (url.includes("&page=")) {
+        pre = url.split("&page=");
+       window.location.href = pre[0] + "&WithGenres=" + gid;
+    }
     else {
         window.location.search += "&WithGenres=" + gid;
     }
