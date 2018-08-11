@@ -8,6 +8,7 @@
 <link rel="stylesheet" href="~/css/loader.css" />
 
 <h2 style="text-align:center "> Welcome to Movie Station !</h2>
+<h4 id="s_result" style="display:none; margin-left:5%"> Results for </h4>
 <body onload="main()" , id="moviesL">
     <div id="loader">  </div>
     <div style="display:none;" id="myDiv" class="animate-bottom">
@@ -19,7 +20,7 @@
             <button id="go" class="btn1" style="width:3%" onclick="jumpPage()">  Go! </button>
         </div>
 
-        <div class="dropdown dropleft" style=" padding-top:7%; right:3%; width:30%;  position: fixed;  z-index: 99 ;">
+        <div class="dropdown dropleft" style=" padding-top:3%; right:3%; width:30%;  position: fixed;  z-index: 99 ;">
             <img src="../../images/search.png" data-toggle="dropdown" style="box-sizing: border-box; width:18%; min-width:40px; float:right; " id="dropleft">
             <div class="dropdown-menu" style="width:100%;  float:right; position:relative; background: rgba(255,255,255,0.8); " id="dowmBox">
                 <br />

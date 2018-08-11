@@ -1,11 +1,13 @@
-﻿@model MvcMovie1.Models.Movie
+﻿<!--p> model MvcMovie1.Models.Movie </p-->
+@model MvcMovie1.Models.User
 
 <meta charset="UTF-8">
 <script src="~/js/detailscript.js"></script>
 <link rel="stylesheet" href="~/css/detailcss.css" />
+<link href="~/css/popup.css" rel="stylesheet">
 <!--h4>@ViewData["Message"]</h4-->
 
-<body onload="mainDetail()" >
+<body onload="mainDetail()">
 
 
     <h2 id='t'> Title</h2>
@@ -15,7 +17,7 @@
             <img id='pic' alt="Movie Picture" style="width: 70%; height: auto; margin-left:15%;"><br />
             <form asp-area="" asp-controller="Home" asp-action="MovieDetail" style="margin-left:5%;">
                 <input type="text" name="mid" id="passvalue" value="this is mid" style="display:none" />
-                <input type="submit" value="Add to my movie list " class="btn btn-default"  style="margin: 2vw 18%" />
+                <input id="myBtn" type="submit" value="Add to my movie list " class="btn btn-default" style="margin: 2vw 18%" />
             </form>
         </div>
 
@@ -34,5 +36,31 @@
         </div>
 
     </div>
-    <div  id="id">   </div>
+    <div id="id">   </div>
+    <p id="tempU" style="display:none"> @TempData.Peek("UserName")   </p>
+
+    <!-- The Modal -->
+
+    <div id="myModal" class="modal">
+        <form asp-area="" asp-controller="User" asp-action="Success">
+            <!-- Modal content -->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="close">&times;</span>
+                    <h2>Log  in</h2>
+                </div>
+                <div class="modal-body">
+                    <p > User Name :</p> <input asp-for="UserName" style="line-height:25px;  width: 80%" /><br>
+                    <p > Password  : </p> <input asp-for="Password" style="line-height:25px; width: 80%"><br><br> 
+                    <p> <button id="login" style="float:right; margin-right:10%; background-color:transparent;" type="submit">Login</button></p>
+                </div>
+                <div class="modal-footer">
+                    <h4 style="text-align:center;"> Do not have an account?</h4>
+                    <h4 style="text-align:right">Sign up here</h4>
+                </div>
+            </div>
+        </form>
+    </div>
+    <script src="~/js/popscript.js"></script>
+
 </body>

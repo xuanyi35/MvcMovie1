@@ -91,8 +91,7 @@ iframe {
     h3 {
         font-size: 5vw;
     }
-
-
+   
 
     iframe {
         float: none;
@@ -135,7 +134,12 @@ iframe {
         }
 
 a, p {
-        font-size: 4.5vw;
+        font-size: 2.7vw;
     }
 }
 
+@media only screen and (max-width: 14cm /*800px*/ ) {
+    a, p {
+        font-size: 4.5vw;
+    }
+}

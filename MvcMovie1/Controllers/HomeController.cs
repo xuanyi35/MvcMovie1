@@ -79,13 +79,12 @@ namespace MvcMovie1.Controllers
 
             if (TempData.Peek("UserId") == null)
             {
-                return RedirectToAction("Login", "User"); 
+                System.Threading.Thread.Sleep(8000);
+                //return RedirectToAction("Login", "User"); 
+                return View();
             }
             else
             {
-
-                //HtmlWeb page = new HtmlWeb();
-                //HtmlDocument document = page.Load("http://localhost:50450/Home/MovieDetail");
   
                 var client = new RestClient("https://api.themoviedb.org/3/movie/"+ mid + "?api_key=b7f9af2647fdef6d0633f07337802317");
                 var request = new RestRequest(Method.GET);

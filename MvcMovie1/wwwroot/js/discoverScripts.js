@@ -188,10 +188,14 @@ function checkURLpage() {
     }
     //////// api 
     if (url.includes("&WithKeyword=")) {
+        document.getElementById("s_result").innerHTML = "Search results for  " + window.sessionStorage.getItem("keystr");
+        document.getElementById("s_result").style.display = "block";
         window.sessionStorage.setItem("apiurl", 'https://api.themoviedb.org/3/search/movie?api_key=b7f9af2647fdef6d0633f07337802317&query=' + url.split("&WithKeyword=")[1]);
+        
     }
     else if (url.includes("&WithGenres=")) {
-
+        document.getElementById("s_result").innerHTML = "Search results for  " + window.sessionStorage.getItem("genstr");
+        document.getElementById("s_result").style.display = "block";
         if (url.includes("&page=")) {
             window.sessionStorage.setItem("apiurl", 'https://api.themoviedb.org/3/discover/movie?api_key=b7f9af2647fdef6d0633f07337802317&sort_by=popularity.desc&page=1&with_genres=' + url.split("&WithGenres=")[1].split("&page=")[0]);
         }
@@ -285,7 +289,7 @@ function byGenre() {
 
             for (i; i < generList.length; i++) {
                 var gener = generList[i];
-                funstr = "GenreAPI(" + gener.id + ")";
+                funstr = "GenreAPI(" + gener.id + ",'" + gener.name + "')";
                 if ((1 + i) % 4 == 1) {
                     var y = x.insertRow(Math.floor((1 + i) / 4));
                     var z = y.insertCell((1 + i) % 4 - 1);
@@ -317,11 +321,9 @@ function byGenre() {
 }
 
 
-function GenreAPI(gid) {
-
-
-
-    console.log(gid);
+function GenreAPI(gid, gname) {
+    console.log(gid + gname);
+    window.sessionStorage.setItem("genstr", gname);
     apiurl = 'https://api.themoviedb.org/3/discover/movie?api_key=b7f9af2647fdef6d0633f07337802317&sort_by=popularity.desc&page=1&with_genres=' + gid;
     window.sessionStorage.setItem("page", '1');
     window.sessionStorage.setItem("apiurl", apiurl);

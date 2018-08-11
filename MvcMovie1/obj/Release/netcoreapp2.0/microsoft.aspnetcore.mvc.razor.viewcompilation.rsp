@@ -1,0 +1,23 @@
+G:\vs projs\MvcMovie1\MvcMovie1
+--output-path=obj\Release\netcoreapp2.0\
+--application-name=MvcMovie1
+--content-root=G:\vs projs\MvcMovie1\MvcMovie1
+--file=G:\vs projs\MvcMovie1\MvcMovie1\Views\HelloWorld\Index.cshtml
+--file=G:\vs projs\MvcMovie1\MvcMovie1\Views\HelloWorld\Welcome.cshtml
+--file=G:\vs projs\MvcMovie1\MvcMovie1\Views\Home\About.cshtml
+--file=G:\vs projs\MvcMovie1\MvcMovie1\Views\Home\Contact.cshtml
+--file=G:\vs projs\MvcMovie1\MvcMovie1\Views\Home\Index.cshtml
+--file=G:\vs projs\MvcMovie1\MvcMovie1\Views\Home\MovieDetail.cshtml
+--file=G:\vs projs\MvcMovie1\MvcMovie1\Views\Movies\Create.cshtml
+--file=G:\vs projs\MvcMovie1\MvcMovie1\Views\Movies\Delete.cshtml
+--file=G:\vs projs\MvcMovie1\MvcMovie1\Views\Movies\Details.cshtml
+--file=G:\vs projs\MvcMovie1\MvcMovie1\Views\Movies\Edit.cshtml
+--file=G:\vs projs\MvcMovie1\MvcMovie1\Views\Movies\Index.cshtml
+--file=G:\vs projs\MvcMovie1\MvcMovie1\Views\Shared\Error.cshtml
+--file=G:\vs projs\MvcMovie1\MvcMovie1\Views\Shared\_Layout.cshtml
+--file=G:\vs projs\MvcMovie1\MvcMovie1\Views\Shared\_ValidationScriptsPartial.cshtml
+--file=G:\vs projs\MvcMovie1\MvcMovie1\Views\User\Create.cshtml
+--file=G:\vs projs\MvcMovie1\MvcMovie1\Views\User\Index.cshtml
+--file=G:\vs projs\MvcMovie1\MvcMovie1\Views\User\Login.cshtml
+--file=G:\vs projs\MvcMovie1\MvcMovie1\Views\_ViewImports.cshtml
+--file=G:\vs projs\MvcMovie1\MvcMovie1\Views\_ViewStart.cshtml

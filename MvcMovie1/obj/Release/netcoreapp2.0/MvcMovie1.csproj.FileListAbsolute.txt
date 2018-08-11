@@ -1,0 +1,11 @@
+G:\vs projs\MvcMovie1\MvcMovie1\bin\Release\netcoreapp2.0\MvcMovie1.deps.json
+G:\vs projs\MvcMovie1\MvcMovie1\bin\Release\netcoreapp2.0\MvcMovie1.runtimeconfig.json
+G:\vs projs\MvcMovie1\MvcMovie1\bin\Release\netcoreapp2.0\MvcMovie1.runtimeconfig.dev.json
+G:\vs projs\MvcMovie1\MvcMovie1\bin\Release\netcoreapp2.0\MvcMovie1.dll
+G:\vs projs\MvcMovie1\MvcMovie1\bin\Release\netcoreapp2.0\MvcMovie1.pdb
+G:\vs projs\MvcMovie1\MvcMovie1\obj\Release\netcoreapp2.0\MvcMovie1.csprojResolveAssemblyReference.cache
+G:\vs projs\MvcMovie1\MvcMovie1\obj\Release\netcoreapp2.0\MvcMovie1.csproj.CoreCompileInputs.cache
+G:\vs projs\MvcMovie1\MvcMovie1\obj\Release\netcoreapp2.0\MvcMovie1.AssemblyInfoInputs.cache
+G:\vs projs\MvcMovie1\MvcMovie1\obj\Release\netcoreapp2.0\MvcMovie1.AssemblyInfo.cs
+G:\vs projs\MvcMovie1\MvcMovie1\obj\Release\netcoreapp2.0\MvcMovie1.dll
+G:\vs projs\MvcMovie1\MvcMovie1\obj\Release\netcoreapp2.0\MvcMovie1.pdb
