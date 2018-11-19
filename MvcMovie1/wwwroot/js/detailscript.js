@@ -110,6 +110,7 @@ function getVideo(mid) {
                 link += video.key;
             }
         });
+
         const video = document.createElement('IFRAME');
         video.setAttribute('allowFullScreen', '')
         video.style.border = "0";
@@ -121,9 +122,12 @@ function getVideo(mid) {
 
 
 function getSimilar(mid) {
-
+    const h3 = document.createElement('h3');
+    h3.innerHTML = "Similar Movies";
+    h3.style.marginLeft = "5%";
     const container = document.createElement('div');
     container.setAttribute("class", "container2");
+    document.getElementById('id').appendChild(h3);
     document.getElementById('id').appendChild(container);
     //const container = document.getElementById("movieIMG");
     api = 'https://api.themoviedb.org/3/movie/' + mid + '/similar?api_key=b7f9af2647fdef6d0633f07337802317&page=1';

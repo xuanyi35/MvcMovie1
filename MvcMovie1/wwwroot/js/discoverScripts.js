@@ -48,7 +48,7 @@ function main() {
     
             card.onclick = function () {
                 window.sessionStorage.setItem("mid", movie.id);
-                window.location.href = "../../Home/MovieDetail?mid=" + movie.id;
+                window.open( "../../Home/MovieDetail?mid=" + movie.id);
             }
            
         });
@@ -349,6 +349,7 @@ function GenreAPI(gid, gname) {
 
 
 function show() {
+    
     document.getElementById("dowmBox").style.display = "block";
     var key = document.getElementById("key");
     var sbtn = document.getElementById("sbtn");
@@ -362,4 +363,5 @@ function show() {
         sbtn.style.display = "block";
         document.getElementById("geners").style.display = "none";
     }
+    
 }
