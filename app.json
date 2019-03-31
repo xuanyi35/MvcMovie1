@@ -10,7 +10,7 @@
     },
     "LAUNCH_ASSEMBLY_NAME": {
       "description": "The assembly name, that will be used to run app using Kestrel",
-      "value": "WebApp.dll"
+      "value": "MvcMovie1.dll"
     }
   },
   "buildpacks": [
@@ -18,7 +18,7 @@
       "url": "heroku/nodejs"
     },
     {
-      "url": "https://github.com/ORuban/aspnetcore-buildpack.git"
+      "url": "https://github.com/xuanyi35/MvcMovie1.git"
     }
   ]
 }
