@@ -105,12 +105,15 @@ function getVideo(mid) {
 
         // Begin accessing JSON data here
         var videos = JSON.parse(this.response).results;
-        videos.forEach(video => {
-            if (video.type == "Trailer") {
-                link += video.key;
+        var i;
+        for (i = 0; i < videos.length; i++){
+            if (videos[i].type == "Trailer") {
+                link += videos[i].key;
+                break;
             }
-        });
+        }
 
+        console.log(link)
         const video = document.createElement('IFRAME');
         video.setAttribute('allowFullScreen', '')
         video.style.border = "0";
