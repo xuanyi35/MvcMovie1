@@ -518,7 +518,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_LinkTagHelper.AppendVersion = true;
 #line hidden
                 EndContext();
                 BeginContext(3286, 170, true);
-                WriteLiteral("\n        </div>\n\n        <hr />\n        <footer>\n            <p style=\"margin-left:30px; margin-right:30px\">&copy; 2018 - MvcMovie1</p>\n        </footer>\n    </div>\n\n    ");
+                WriteLiteral("\n        </div>\n\n        <hr />\n        <footer>\n            <p style=\"margin-left:30px; margin-right:30px\">&copy; 2019 - MvcMovie1</p>\n        </footer>\n    </div>\n\n    ");
                 EndContext();
                 BeginContext(3456, 254, false);
                 __tagHelperExecutionContext = __tagHelperScopeManager.Begin("environment", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f6bff5fd51077678496f697412afb453a135c32a46277", async() => {
