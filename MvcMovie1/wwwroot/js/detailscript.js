@@ -85,8 +85,12 @@ function updateMid() {
     url = window.location.href;
     if (url.includes("?mid=")) {
         newMID = url.split("?mid=")[1];
-        current  = window.sessionStorage.getItem("mid").toString()
-        if (!(current === newMID)) {
+        try{
+            current  = window.sessionStorage.getItem("mid").toString()
+            if (!(current === newMID)) {
+                window.sessionStorage.setItem("mid", newMID);
+            }
+        }catch(err){
             window.sessionStorage.setItem("mid", newMID);
         }
     }  
