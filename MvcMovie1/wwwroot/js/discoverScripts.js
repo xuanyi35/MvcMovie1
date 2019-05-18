@@ -35,10 +35,15 @@ function main() {
 
             const h1 = document.createElement('h1');
             h1.textContent = movie.title;
-           
-            const img = document.createElement("img");
-            img.src = "https://image.tmdb.org/t/p/w200" + movie.poster_path;
 
+            const img = document.createElement("img");
+            if (movie.poster_path == null){                
+                img.src= "../images/Noimg.jpg"
+            }
+            else{
+                img.src = "https://image.tmdb.org/t/p/w200" + movie.poster_path;
+            }
+            
 
             container.appendChild(card);                    // container append cards (movies)
             card.appendChild(h1);
