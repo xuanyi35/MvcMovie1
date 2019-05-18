@@ -200,14 +200,24 @@ function checkURLpage() {
     }
     //////// api 
     if (url.includes("&WithKeyword=")) {
-        document.getElementById("s_result").innerHTML = "Search results for  " + window.sessionStorage.getItem("keystr");
-        document.getElementById("s_result").style.display = "block";
+        if(window.sessionStorage.getItem("keystr")!=null){
+            document.getElementById("s_result").innerHTML = "Search results for  " + window.sessionStorage.getItem("keystr");
+            document.getElementById("s_result").style.display = "block";
+        }
+        else{
+            document.getElementById("s_result").style.display = "none";
+        }
         window.sessionStorage.setItem("apiurl", 'https://api.themoviedb.org/3/search/movie?api_key=b7f9af2647fdef6d0633f07337802317&query=' + url.split("&WithKeyword=")[1]);
         
     }
     else if (url.includes("&WithGenres=")) {
-        document.getElementById("s_result").innerHTML = "Search results for  " + window.sessionStorage.getItem("genstr");
-        document.getElementById("s_result").style.display = "block";
+        if(window.sessionStorage.getItem("genstr")!=null){
+            document.getElementById("s_result").innerHTML = "Search results for  " + window.sessionStorage.getItem("genstr");
+            document.getElementById("s_result").style.display = "block";
+        }
+        else{
+            document.getElementById("s_result").style.display = "none";
+        }
         if (url.includes("&page=")) {
             window.sessionStorage.setItem("apiurl", 'https://api.themoviedb.org/3/discover/movie?api_key=b7f9af2647fdef6d0633f07337802317&sort_by=popularity.desc&page=1&with_genres=' + url.split("&WithGenres=")[1].split("&page=")[0]);
         }
